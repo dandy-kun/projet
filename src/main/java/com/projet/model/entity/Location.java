@@ -2,25 +2,42 @@ package com.projet.model.entity;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Location {
-	private int num_location;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ID", nullable = false)
+	private int id;
+	@Column(name = "DATELOCATION", nullable = false)
 	private Date dateLocation;
+	@Column(name = "DATERETOUR", nullable = false)
 	private Date dateRetour;
+	@Column(name = "STATUT", nullable = false)
 	private Chauffeur statut;
+	@Column(name = "PRIX", nullable = false)
 	private float prix;
+	@Column(name = "VOITURE", nullable = false)
 	private Voitures voiture_id;
+	@Column(name = "VOITURE_ID", nullable = false)
 	private Clients client_id;
+	@Column(name = "CHAUFFEUR_ID", nullable = false)
 	private Chauffeur chauffeur_id;
 
 	public Location() {
 		super();
 	}
 
-	public Location(int num_location, Date dateLocation, Date dateRetour,
+	public Location(int id, Date dateLocation, Date dateRetour,
 			Chauffeur statut, float prix, Voitures voiture_id,
 			Clients client_id, Chauffeur chauffeur_id) {
 		super();
-		this.num_location = num_location;
+		this.id = id;
 		this.dateLocation = dateLocation;
 		this.dateRetour = dateRetour;
 		this.statut = statut;
@@ -30,12 +47,12 @@ public class Location {
 		this.chauffeur_id = chauffeur_id;
 	}
 
-	public int getNum_location() {
-		return num_location;
+	public int getId() {
+		return id;
 	}
 
-	public void setNum_location(int num_location) {
-		this.num_location = num_location;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public Date getDateLocation() {
@@ -96,9 +113,9 @@ public class Location {
 
 	@Override
 	public String toString() {
-		return "Location [num_location=" + num_location + ", dateLocation="
-				+ dateLocation + ", dateRetour=" + dateRetour + ", statut="
-				+ statut + ", prix=" + prix + ", voiture_id=" + voiture_id
+		return "Location [id=" + id + ", dateLocation=" + dateLocation
+				+ ", dateRetour=" + dateRetour + ", statut=" + statut
+				+ ", prix=" + prix + ", voiture_id=" + voiture_id
 				+ ", client_id=" + client_id + ", chauffeur_id=" + chauffeur_id
 				+ "]";
 	}

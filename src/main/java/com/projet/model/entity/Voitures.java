@@ -1,24 +1,43 @@
 package com.projet.model.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 import com.projet.model.entity.enumeration.Statut;
 
+@Entity
 public class Voitures {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ID", nullable = false)
 	private int id;
+	@Column(name = "MARQUE", nullable = false)
 	private String marque;
+	@Column(name = "MODELE", nullable = false)
 	private String modele;
+	@Column(name = "COULEUR", nullable = false)
 	private String couleur;
+	@Column(name = "ANNEE", nullable = false)
 	private int annee;
+	@Column(name = "KILOMETRE", nullable = false)
 	private int kilometre;
+	@Column(name = "STATUT", nullable = false)
 	private Statut statut;
+	@Column(name = "CAUTION", nullable = false)
 	private float caution;
+	@Column(name = "TARIF", nullable = false)
 	private float tarif;
 
 	public Voitures() {
 		super();
 	}
 
-	public Voitures(int id, String marque, String modele, String couleur,
-			int annee, int kilometre, Statut statut, float caution, float tarif) {
+	public Voitures(final int id, final String marque, final String modele,
+			final String couleur, final int annee, final int kilometre,
+			final Statut statut, final float caution, final float tarif) {
 		super();
 		this.id = id;
 		this.marque = marque;
@@ -35,7 +54,7 @@ public class Voitures {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(final int id) {
 		this.id = id;
 	}
 
@@ -43,7 +62,7 @@ public class Voitures {
 		return marque;
 	}
 
-	public void setMarque(String marque) {
+	public void setMarque(final String marque) {
 		this.marque = marque;
 	}
 
@@ -51,7 +70,7 @@ public class Voitures {
 		return modele;
 	}
 
-	public void setModele(String modele) {
+	public void setModele(final String modele) {
 		this.modele = modele;
 	}
 
@@ -59,7 +78,7 @@ public class Voitures {
 		return couleur;
 	}
 
-	public void setCouleur(String couleur) {
+	public void setCouleur(final String couleur) {
 		this.couleur = couleur;
 	}
 
@@ -67,7 +86,7 @@ public class Voitures {
 		return annee;
 	}
 
-	public void setAnnee(int annee) {
+	public void setAnnee(final int annee) {
 		this.annee = annee;
 	}
 
@@ -75,7 +94,7 @@ public class Voitures {
 		return kilometre;
 	}
 
-	public void setKilometre(int kilometre) {
+	public void setKilometre(final int kilometre) {
 		this.kilometre = kilometre;
 	}
 
@@ -83,7 +102,7 @@ public class Voitures {
 		return statut;
 	}
 
-	public void setStatut(Statut statut) {
+	public void setStatut(final Statut statut) {
 		this.statut = statut;
 	}
 
@@ -91,7 +110,7 @@ public class Voitures {
 		return caution;
 	}
 
-	public void setCaution(float caution) {
+	public void setCaution(final float caution) {
 		this.caution = caution;
 	}
 
@@ -99,7 +118,7 @@ public class Voitures {
 		return tarif;
 	}
 
-	public void setTarif(float tarif) {
+	public void setTarif(final float tarif) {
 		this.tarif = tarif;
 	}
 

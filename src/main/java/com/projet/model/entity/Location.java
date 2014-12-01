@@ -3,6 +3,7 @@ package com.projet.model.entity;
 import java.util.Date;
 
 public class Location {
+	private int id;
 	private int num_location;
 	private Date dateLocation;
 	private Date dateRetour;
@@ -28,6 +29,14 @@ public class Location {
 		this.voiture_id = voiture_id;
 		this.client_id = client_id;
 		this.chauffeur_id = chauffeur_id;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public int getNum_location() {

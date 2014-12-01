@@ -1,10 +1,21 @@
 package com.projet.model.entity;
 
-public class Clients {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 
+@Entity
+public class Clients {
+	@javax.persistence.Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ID", nullable = false)
 	private int Id;
+	@Column(name = "NOM", nullable = false)
 	private String nom;
+	@Column(name = "PRENOM", nullable = false)
 	private String prenom;
+	@Column(name = "ADRESSE", nullable = false)
 	private String adresse;
 
 	public Clients() {

@@ -1,9 +1,21 @@
 package com.projet.model.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+
+@Entity
 public class Chauffeur {
+	@javax.persistence.Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ID", nullable = false)
 	private int Id;
+	@Column(name = "NOM", nullable = false)
 	private String nom;
+	@Column(name = "PRENOM", nullable = false)
 	private String prenom;
+	@Column(name = "TARIF", nullable = false)
 	private float tarif;
 
 	public Chauffeur() {

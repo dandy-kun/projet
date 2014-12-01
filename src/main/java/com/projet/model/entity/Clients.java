@@ -1,8 +1,9 @@
 package com.projet.model.entity;
 
 public class Clients {
-	private String nom;
+
 	private int Id;
+	private String nom;
 	private String prenom;
 	private String adresse;
 

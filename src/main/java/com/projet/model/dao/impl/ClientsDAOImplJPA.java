@@ -7,18 +7,20 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
-import com.projet.controller.Clients;
+import com.projet.controller.ClientsController;
 import com.projet.model.dao.ClientsDAO;
+import com.projet.model.entity.Clients;
 
 public class ClientsDAOImplJPA implements ClientsDAO {
 
 	private EntityManager entityManager;
 
-	public List<Clients> getAllClient() {
+	public List<ClientsController> getAllClient() {
 
 		final CriteriaBuilder builder = entityManager.getCriteriaBuilder();
-		final CriteriaQuery<Clients> cq = builder.createQuery(Clients.class);
-		final Root<Clients> root = cq.from(Clients.class);
+		final CriteriaQuery<ClientsController> cq = builder
+				.createQuery(ClientsController.class);
+		final Root<ClientsController> root = cq.from(ClientsController.class);
 		cq.select(root);
 		return entityManager.createQuery(cq).getResultList();
 

@@ -1,9 +1,12 @@
+
 package com.projet.model.manager.impl;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.projet.model.dao.ChauffeurDAO;
 import com.projet.model.dao.ClientsDAO;
@@ -35,48 +38,54 @@ public class ProjetManagerImpl implements ProjetManager {
 	}
 
 	public Boolean addVoitures(final Voitures voitures) {
-		// TODO Auto-generated method stub
-		return null;
+		try {
+			voituresDao.addVoitures(voitures);
+		} catch (final SQLException e) {
+			e.printStackTrace();
+		}
+		return true;
 	}
 
-	public List<Clients> getClients() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	@Transactional(readOnly = false)
 	public Boolean addChauffeur(final Chauffeur chauffeur) {
-		// TODO Auto-generated method stub
-		return null;
+		chauffeurDao.createChauffeur(chauffeur);
+		return true;
 	}
 
+	@Transactional(readOnly = false)
 	public Boolean addClients(final Clients clients) {
-		// TODO Auto-generated method stub
-		return null;
+		clientDao.addClient(clients);
+		return true;
 	}
 
+	@Transactional(readOnly = false)
 	public Boolean addLocation(final Location location) {
-		// TODO Auto-generated method stub
-		return null;
+		locationDao.createLocation(location);
+		return true;
+	}
+
+	public Boolean removeLocation(final Location location) {
+		locationDao.deleteLocation(location);
+		return true;
 	}
 
 	public Boolean removeClients(final Clients clients) {
-		// TODO Auto-generated method stub
-		return null;
+		locationDao.deleteClients(clients);
+		return true;
 	}
 
-	public Clients getClient(final Integer clientId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public List<Clients> getClients(final Integer clientId) {
-		// TODO Auto-generated method stub
+	public Clients getClient(final Integer clientsId) {
 		return null;
 	}
 
 	public void updateClient(final Clients clients) {
-		// TODO Auto-generated method stub
+		clientDao.updateClient(clients);
+	}
 
+	public List<Clients> getClients(final Integer clientId) {
+
+		return null;
 	}
 
 }
+>>>>>>> branch 'master' of https://github.com/dandy-kun/projet.git

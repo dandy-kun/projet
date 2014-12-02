@@ -2,17 +2,19 @@ package com.projet.model.dao;
 
 import java.util.List;
 
-import com.projet.controller.Clients;
+import com.projet.controller.ClientsController;
+import com.projet.model.entity.Clients;
 
 public interface ClientsDAO {
 
-	public List<Clients> getAllClient();
+	public List<ClientsController> getAllClient();
 
 	public Clients getClient(Integer Id);
 
 	public boolean addClient(Clients client);
 
-	public boolean updateClient(Clients client);
+	public boolean updateClient(Clients clients);
 
 	public boolean deleteClient(Clients client);
+
 }

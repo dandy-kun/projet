@@ -8,6 +8,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
 import com.projet.model.dao.LocationDAO;
+import com.projet.model.entity.Clients;
 import com.projet.model.entity.Location;
 
 public class LocationDAOImplJPA implements LocationDAO {
@@ -22,7 +23,7 @@ public class LocationDAOImplJPA implements LocationDAO {
 		return entityManager.createQuery(cq).getResultList();
 	}
 
-	public boolean createLocation(Location location) {
+	public boolean createLocation(final Location location) {
 		if (location == null) {
 			return false;
 		}
@@ -30,7 +31,7 @@ public class LocationDAOImplJPA implements LocationDAO {
 		return true;
 	}
 
-	public boolean updateLocation(Location location) {
+	public boolean updateLocation(final Location location) {
 		if (location == null) {
 			return false;
 		}
@@ -38,7 +39,7 @@ public class LocationDAOImplJPA implements LocationDAO {
 		return true;
 	}
 
-	public boolean deleteLocation(Location location) {
+	public boolean deleteLocation(final Location location) {
 		if (location == null) {
 			return false;
 		}
@@ -46,11 +47,20 @@ public class LocationDAOImplJPA implements LocationDAO {
 		return true;
 	}
 
-	public Location readLocation(Integer id) {
+	public Location readLocation(final Integer id) {
 		if (id == null) {
 			return null;
 		}
 		return entityManager.find(Location.class, id);
+	}
+
+	public boolean deleteClients(final Clients clients) {
+		if (clients == null) {
+			return false;
+		}
+		entityManager.remove(clients);
+		return true;
+
 	}
 
 }

@@ -1,4 +1,3 @@
-
 package com.projet.model.manager.impl;
 
 import java.sql.SQLException;
@@ -87,5 +86,8 @@ public class ProjetManagerImpl implements ProjetManager {
 		return null;
 	}
 
+	public List<Clients> getClients() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
->>>>>>> branch 'master' of https://github.com/dandy-kun/projet.git

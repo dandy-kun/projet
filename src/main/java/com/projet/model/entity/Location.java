@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Location {
@@ -24,18 +25,19 @@ public class Location {
 	private float prix;
 	@Column(name = "VOITURE", nullable = false)
 	private Voitures voiture_id;
-	@Column(name = "VOITURE_ID", nullable = false)
+	@ManyToOne
 	private Clients client_id;
-	@Column(name = "CHAUFFEUR_ID", nullable = false)
+	@ManyToOne
 	private Chauffeur chauffeur_id;
 
 	public Location() {
 		super();
 	}
 
-	public Location(int id, Date dateLocation, Date dateRetour,
-			Chauffeur statut, float prix, Voitures voiture_id,
-			Clients client_id, Chauffeur chauffeur_id) {
+	public Location(final int id, final Date dateLocation,
+			final Date dateRetour, final Chauffeur statut, final float prix,
+			final Voitures voiture_id, final Clients client_id,
+			final Chauffeur chauffeur_id) {
 		super();
 		this.id = id;
 		this.dateLocation = dateLocation;
@@ -51,7 +53,7 @@ public class Location {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(final int id) {
 		this.id = id;
 	}
 
@@ -59,7 +61,7 @@ public class Location {
 		return dateLocation;
 	}
 
-	public void setDateLocation(Date dateLocation) {
+	public void setDateLocation(final Date dateLocation) {
 		this.dateLocation = dateLocation;
 	}
 
@@ -67,7 +69,7 @@ public class Location {
 		return dateRetour;
 	}
 
-	public void setDateRetour(Date dateRetour) {
+	public void setDateRetour(final Date dateRetour) {
 		this.dateRetour = dateRetour;
 	}
 
@@ -75,7 +77,7 @@ public class Location {
 		return statut;
 	}
 
-	public void setStatut(Chauffeur statut) {
+	public void setStatut(final Chauffeur statut) {
 		this.statut = statut;
 	}
 
@@ -83,7 +85,7 @@ public class Location {
 		return prix;
 	}
 
-	public void setPrix(float prix) {
+	public void setPrix(final float prix) {
 		this.prix = prix;
 	}
 
@@ -91,7 +93,7 @@ public class Location {
 		return voiture_id;
 	}
 
-	public void setVoiture_id(Voitures voiture_id) {
+	public void setVoiture_id(final Voitures voiture_id) {
 		this.voiture_id = voiture_id;
 	}
 
@@ -99,7 +101,7 @@ public class Location {
 		return client_id;
 	}
 
-	public void setClient_id(Clients client_id) {
+	public void setClient_id(final Clients client_id) {
 		this.client_id = client_id;
 	}
 
@@ -107,7 +109,7 @@ public class Location {
 		return chauffeur_id;
 	}
 
-	public void setChauffeur_id(Chauffeur chauffeur_id) {
+	public void setChauffeur_id(final Chauffeur chauffeur_id) {
 		this.chauffeur_id = chauffeur_id;
 	}
 

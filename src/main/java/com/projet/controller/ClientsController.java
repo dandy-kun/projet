@@ -1,5 +1,5 @@
 package com.projet.controller;
 
-public class Clients {
+public class ClientsController {
 
 }

@@ -11,8 +11,6 @@ public interface ProjetManager {
 
 	public Boolean addVoitures(Voitures voitures);
 
-	public List<Clients> getClients();
-
 	public Boolean addChauffeur(Chauffeur chauffeur);
 
 	public Boolean addClients(Clients clients);
@@ -23,8 +21,10 @@ public interface ProjetManager {
 
 	public Clients getClient(Integer clientId);
 
-	public List<com.projet.model.entity.Clients> getClients(Integer clientId);
-
 	public void updateClient(Clients clients);
+
+	public List<Clients> getClients(Integer clientId);
+
+	public Boolean removeLocation(Location location);
 
 }

@@ -1,12 +1,12 @@
 package com.projet.model.entity.enumeration;
 
-public enum Chauffeur {
+public enum Etat {
 	AVEC("Avec"), SANS("Sans");
 
 	private String name = "";
 
 	// Constructeur
-	Chauffeur(String name) {
+	Etat(String name) {
 		this.name = name;
 	}
 

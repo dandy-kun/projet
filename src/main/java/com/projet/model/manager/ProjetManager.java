@@ -26,5 +26,4 @@ public interface ProjetManager {
 	public List<Clients> getClients(Integer clientId);
 
 	public Boolean removeLocation(Location location);
-
 }

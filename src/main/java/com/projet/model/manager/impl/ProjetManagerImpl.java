@@ -1,3 +1,4 @@
+
 package com.projet.model.manager.impl;
 
 import java.sql.SQLException;
@@ -87,3 +88,4 @@ public class ProjetManagerImpl implements ProjetManager {
 	}
 
 }
+>>>>>>> branch 'master' of https://github.com/dandy-kun/projet.git

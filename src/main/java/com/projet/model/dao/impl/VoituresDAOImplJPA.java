@@ -20,7 +20,7 @@ public class VoituresDAOImplJPA implements VoituresDAO {
 	@PersistenceContext
 	private EntityManager entityManager;
 
-	public boolean create(final Voitures obj) throws SQLException {
+	public boolean addVoitures(final Voitures obj) throws SQLException {
 		if (obj == null) {
 			return false;
 		}
@@ -28,7 +28,7 @@ public class VoituresDAOImplJPA implements VoituresDAO {
 		return true;
 	}
 
-	public boolean delete(final Voitures obj) throws SQLException {
+	public boolean deleteVoitures(final Voitures obj) throws SQLException {
 		if (obj == null) {
 			return false;
 		}
@@ -36,7 +36,7 @@ public class VoituresDAOImplJPA implements VoituresDAO {
 		return true;
 	}
 
-	public boolean update(final Voitures obj) throws SQLException {
+	public boolean updateVoitures(final Voitures obj) throws SQLException {
 		if (obj == null) {
 			return false;
 		}
@@ -44,44 +44,19 @@ public class VoituresDAOImplJPA implements VoituresDAO {
 		return true;
 	}
 
-	public Voitures find(final Integer id) throws SQLException {
+	public Voitures getVoitures(final Integer id) throws SQLException {
 		if (id == null) {
 			return null;
 		}
 		return entityManager.find(Voitures.class, id);
 	}
 
-	public List<Voitures> findAll() {
+	public List<Voitures> getAllVoitures() {
 		final CriteriaBuilder builder = entityManager.getCriteriaBuilder();
 		final CriteriaQuery<Voitures> cq = builder.createQuery(Voitures.class);
 		final Root<Voitures> root = cq.from(Voitures.class);
 		cq.select(root);
 		return entityManager.createQuery(cq).getResultList();
-	}
-
-	public List<Voitures> getAllVoitures() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public Voitures getVoiture(final int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public void addVoiture(final Voitures voiture) {
-		// TODO Auto-generated method stub
-
-	}
-
-	public Voitures updateVoiture(final Voitures voiture) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public Voitures deleteVoiture(final Voitures voiture) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

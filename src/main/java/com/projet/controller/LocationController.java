@@ -1,5 +1,5 @@
 package com.projet.controller;
 
-public class MainController {
+public class LocationController {
 
 }

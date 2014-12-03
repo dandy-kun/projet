@@ -2,40 +2,66 @@ package com.projet.model.dao.impl;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+
+import org.springframework.stereotype.Repository;
+
 import com.projet.model.dao.ChauffeurDAO;
 import com.projet.model.entity.Chauffeur;
-import com.projet.model.entity.Clients;
+import com.projet.model.entity.Client;
 
+@Repository
 public class ChauffeurDAOImplJPA implements ChauffeurDAO {
 
+	@PersistenceContext
+	private EntityManager entityManager;
+
+	public Chauffeur getChauffeur(final Integer id) {
+		if (id == null) {
+			return null;
+		}
+		return entityManager.find(Chauffeur.class, id);
+	}
+	
+	@Override
 	public List<Chauffeur> getAllChauffeur() {
-		// TODO Auto-generated method stub
-		return null;
+		final CriteriaBuilder builder = entityManager.getCriteriaBuilder();
+		final CriteriaQuery<Chauffeur> cq = builder
+				.createQuery(Chauffeur.class);
+		final Root<Chauffeur> root = cq.from(Chauffeur.class);
+		cq.select(root);
+		return entityManager.createQuery(cq).getResultList();
 	}
 
 	public boolean createChauffeur(final Chauffeur chauffeur) {
-		// TODO Auto-generated method stub
-		return false;
+		if (chauffeur == null) {
+			return false;
+		}
+		entityManager.persist(chauffeur);
+		return true;
 	}
 
-	public Chauffeur readChauffeur(final Integer id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	public boolean updateChauffeur(final Chauffeur chauffeur) {
-		// TODO Auto-generated method stub
-		return false;
+		if (chauffeur == null) {
+			return false;
+		}
+		entityManager.persist(chauffeur);
+		return true;
+
 	}
 
 	public boolean deleteChauffeur(final Chauffeur chauffeur) {
-		// TODO Auto-generated method stub
-		return false;
+		if (chauffeur == null) {
+			return false;
+		}
+		entityManager.remove(chauffeur);
+		return true;
 	}
 
-	public void delete(final Clients cl) {
-		// TODO Auto-generated method stub
-
-	}
 
 }

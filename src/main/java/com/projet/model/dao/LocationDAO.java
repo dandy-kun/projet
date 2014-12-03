@@ -2,7 +2,7 @@ package com.projet.model.dao;
 
 import java.util.List;
 
-import com.projet.model.entity.Clients;
+import com.projet.model.entity.Client;
 import com.projet.model.entity.Location;
 
 public interface LocationDAO {
@@ -16,6 +16,6 @@ public interface LocationDAO {
 
 	public boolean deleteLocation(Location location);
 
-	public boolean deleteClients(Clients clients);
+	public boolean deleteClients(Client clients);
 
 }

@@ -36,6 +36,7 @@ public class ProjetManagerImpl implements ProjetManager {
 		super();
 	}
 
+	@Override
 	public Boolean addVoitures(final Voiture voitures) {
 		try {
 			voituresDao.addVoitures(voitures);
@@ -45,38 +46,45 @@ public class ProjetManagerImpl implements ProjetManager {
 		return true;
 	}
 
+	@Override
 	@Transactional(readOnly = false)
 	public Boolean addChauffeur(final Chauffeur chauffeur) {
 		chauffeurDao.createChauffeur(chauffeur);
 		return true;
 	}
 
+	@Override
 	@Transactional(readOnly = false)
 	public Boolean addClients(final Client clients) {
 		clientDao.addClient(clients);
 		return true;
 	}
 
+	@Override
 	@Transactional(readOnly = false)
 	public Boolean addLocation(final Location location) {
 		locationDao.createLocation(location);
 		return true;
 	}
 
+	@Override
 	public Boolean removeLocation(final Location location) {
 		locationDao.deleteLocation(location);
 		return true;
 	}
 
-	public Boolean removeClients(final Client clients) {
-		locationDao.deleteClients(clients);
+	@Override
+	public Boolean removeClients(final Client client) {
+		clientDao.deleteClient(client);
 		return true;
 	}
 
+	@Override
 	public Client getClient(final Integer clientsId) {
 		return null;
 	}
 
+	@Override
 	public void updateClient(final Client clients) {
 		clientDao.updateClient(clients);
 	}
@@ -86,26 +94,31 @@ public class ProjetManagerImpl implements ProjetManager {
 		return null;
 	}
 
+	@Override
 	public List<Client> getClients() {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
+	@Override
 	public Location getLocation(final Integer clientId) {
 
 		return null;
 	}
 
+	@Override
 	public Chauffeur getChauffeur(final Integer chauffeurId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	@Override
 	public List<Chauffeur> getChauffeurs() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	@Override
 	public void updateChauffeur(final Chauffeur chauffeur) {
 		// TODO Auto-generated method stub
 

@@ -11,7 +11,6 @@ import javax.persistence.criteria.Root;
 import org.springframework.stereotype.Repository;
 
 import com.projet.model.dao.LocationDAO;
-import com.projet.model.entity.Client;
 import com.projet.model.entity.Location;
 
 @Repository
@@ -62,16 +61,6 @@ public class LocationDAOImplJPA implements LocationDAO {
 			return null;
 		}
 		return entityManager.find(Location.class, id);
-	}
-
-	@Override
-	public boolean deleteClients(final Client clients) {
-		if (clients == null) {
-			return false;
-		}
-		entityManager.remove(clients);
-		return true;
-
 	}
 
 }

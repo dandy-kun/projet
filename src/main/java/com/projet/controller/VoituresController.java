@@ -30,7 +30,7 @@ public class VoituresController {
 
 		// FIXME
 		final Location location = projetManager.getLocation(null);
-		final List<Clients> list = projetManager.getClients();
+		final List<Client> list = projetManager.getClients();
 
 		model.addAttribute("location", list);
 

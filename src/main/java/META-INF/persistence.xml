@@ -9,9 +9,9 @@
 		<class>com.projet.model.entity.Location</class>
 		<class>com.projet.model.entity.Voiture</class>
 		<properties>
-			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
 			<property name="hibernate.showSql" value="true" />
-			<property name="hibernate.hbm2ddl.auto" value="create" />
+			<!-- <property name="hibernate.hbm2ddl.auto" value="create" /> -->
 			<property name="hibernate.connection.autocommit" value="true" />
 		</properties>
 	</persistence-unit>

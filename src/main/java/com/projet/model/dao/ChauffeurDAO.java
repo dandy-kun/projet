@@ -10,12 +10,10 @@ public interface ChauffeurDAO {
 
 	public boolean createChauffeur(Chauffeur chauffeur);
 
-	public Chauffeur readChauffeur(Integer id);
-
 	public boolean updateChauffeur(Chauffeur chauffeur);
 
 	public boolean deleteChauffeur(Chauffeur chauffeur);
 
-	public void delete(Clients cl);
+	public boolean delete(Clients cl);
 
 }

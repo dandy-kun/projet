@@ -90,4 +90,25 @@ public class ProjetManagerImpl implements ProjetManager {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	public Location getLocation(final Integer clientId) {
+
+		return null;
+	}
+	
+
+	public Chauffeur getChauffeur(final Integer chauffeurId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<Chauffeur> getChauffeurs() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void updateChauffeur(final Chauffeur chauffeur) {
+		// TODO Auto-generated method stub
+
+	}
 }

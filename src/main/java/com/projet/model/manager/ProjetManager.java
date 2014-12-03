@@ -21,9 +21,17 @@ public interface ProjetManager {
 
 	public Clients getClient(Integer clientId);
 
+	public Location getLocation(Integer clientId);
+
 	public void updateClient(Clients clients);
 
 	public List<Clients> getClients();
 
 	public Boolean removeLocation(Location location);
+
+	public Chauffeur getChauffeur(Integer chauffeurId);
+
+	public List<Chauffeur> getChauffeurs();
+
+	public void updateChauffeur(Chauffeur chauffeur);
 }

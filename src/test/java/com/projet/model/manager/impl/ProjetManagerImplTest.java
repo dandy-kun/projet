@@ -13,7 +13,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
+import org.mockito.Matchers;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.runners.MockitoJUnitRunner;
 
@@ -94,8 +96,9 @@ public class ProjetManagerImplTest {
 
 	@Test
 	public void testAddClients() {
-		// Mockito.when(chauffeurDao.addchauffeur(Mockito.any(Chauffeur.class))).thenReturn(
-		// Boolean.TRUE);
+		Mockito.when(
+				chauffeurDao.createChauffeur(Matchers.any(Chauffeur.class)))
+				.thenReturn(Boolean.TRUE);
 		final Clients client = new Clients(1, "Lecomte", "Henry", "Lille");
 		projetManagerImpl.addClients(client);
 		final Boolean b1 = projetManagerImpl.addClients(client);
@@ -104,12 +107,13 @@ public class ProjetManagerImplTest {
 
 	@Test
 	public void testAddLocation() throws ParseException {
-		// Mockito.when(chauffeurDao.addchauffeur(Mockito.any(Chauffeur.class))).thenReturn(
-		// Boolean.TRUE);
+		Mockito.when(
+				chauffeurDao.createChauffeur(Matchers.any(Chauffeur.class)))
+				.thenReturn(Boolean.TRUE);
 		final Date dateDebut = new SimpleDateFormat("mm/dd/yyyy", Locale.FRANCE)
-				.parse("12/25/2014");
+		.parse("12/25/2014");
 		final Date dateFin = new SimpleDateFormat("mm/dd/yyyy", Locale.FRANCE)
-		.parse("12/28/2014");
+				.parse("12/28/2014");
 
 		final Location location = new Location(1, dateDebut, dateFin, null,
 				3000.f, null, null, null);
@@ -120,8 +124,9 @@ public class ProjetManagerImplTest {
 
 	@Test
 	public void testRemoveClients() {
-		// Mockito.when(chauffeurDao.addchauffeur(Mockito.any(Chauffeur.class))).thenReturn(
-		// Boolean.TRUE);
+		Mockito.when(
+				chauffeurDao.createChauffeur(Matchers.any(Chauffeur.class)))
+				.thenReturn(Boolean.TRUE);
 		final Clients client = new Clients(1, "Lecomte", "Henry", "Lille");
 		projetManagerImpl.removeClients(client);
 		final Boolean b1 = projetManagerImpl.removeClients(client);
@@ -130,8 +135,8 @@ public class ProjetManagerImplTest {
 
 	@Test
 	public void testGetClientsInteger() {
-		// Mockito.when(clientsDao.getClients(Mockito.any(Voitures.class))).thenReturn(
-		// Boolean.TRUE);
+		Mockito.when(clientDao.getClients(Matchers.any(Clients.class)))
+				.thenReturn(Boolean.TRUE);
 		final Clients client = new Clients(1, "Lecomte", "Henry", "Lille");
 		projetManagerImpl.addClients(client);
 		projetManagerImpl.getClient(client.getId());
@@ -142,8 +147,9 @@ public class ProjetManagerImplTest {
 
 	@Test
 	public void testUpdateClient() {
-		// Mockito.when(chauffeurDao.addchauffeur(Mockito.any(Chauffeur.class))).thenReturn(
-		// Boolean.TRUE);
+		Mockito.when(
+				chauffeurDao.createChauffeur(Matchers.any(Chauffeur.class)))
+				.thenReturn(Boolean.TRUE);
 		final Clients client = new Clients(1, "Lecomte", "Henry", "Lille");
 
 		projetManagerImpl.addClients(client);

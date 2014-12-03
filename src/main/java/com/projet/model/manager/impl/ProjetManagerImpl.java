@@ -91,12 +91,15 @@ public class ProjetManagerImpl implements ProjetManager {
 		return null;
 	}
 
+<<<<<<< HEAD
 	public Location getLocation(final Integer clientId) {
 
 		return null;
 	}
 	
 
+=======
+>>>>>>> branch 'master' of https://github.com/dandy-kun/projet.git
 	public Chauffeur getChauffeur(final Integer chauffeurId) {
 		// TODO Auto-generated method stub
 		return null;

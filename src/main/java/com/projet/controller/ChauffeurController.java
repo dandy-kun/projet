@@ -2,6 +2,7 @@ package com.projet.controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
@@ -17,17 +18,12 @@ import com.projet.model.manager.ProjetManager;
 @Controller
 @RequestMapping("/chauffeur")
 public class ChauffeurController {
-	private ProjetManager projetManager;
 
-	public void init() {
-		final ApplicationContext ctx = new ClassPathXmlApplicationContext(
-				"spring.xml");
-		projetManager = (ProjetManager) ctx.getBean("projetManagerImpl");
-	}
+	@Autowired
+	private ProjetManager projetManager;
 
 	@RequestMapping
 	public String printChauffeur(final ModelMap model) {
-		init();
 		final List<Chauffeur> list = projetManager.getChauffeurs();
 		model.addAttribute("chauffeur", list);
 		return "chauffeur";

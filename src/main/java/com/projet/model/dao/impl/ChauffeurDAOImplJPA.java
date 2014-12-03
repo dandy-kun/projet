@@ -7,11 +7,11 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-
+import org.springframework.stereotype.Repository;
 import com.projet.model.dao.ChauffeurDAO;
 import com.projet.model.entity.Chauffeur;
-import com.projet.model.entity.Clients;
 
+@Repository
 public class ChauffeurDAOImplJPA implements ChauffeurDAO {
 
 	@PersistenceContext
@@ -24,6 +24,7 @@ public class ChauffeurDAOImplJPA implements ChauffeurDAO {
 		return entityManager.find(Chauffeur.class, id);
 	}
 
+	@Override
 	public List<Chauffeur> getAllChauffeur() {
 		final CriteriaBuilder builder = entityManager.getCriteriaBuilder();
 		final CriteriaQuery<Chauffeur> cq = builder
@@ -58,12 +59,6 @@ public class ChauffeurDAOImplJPA implements ChauffeurDAO {
 		return true;
 	}
 
-	public boolean delete(final Clients cl) {
-		if (cl == null) {
-			return false;
-		}
-		entityManager.remove(cl);
-		return true;
-	}
+
 
 }

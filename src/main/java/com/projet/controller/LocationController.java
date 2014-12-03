@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.projet.model.entity.Clients;
+import com.projet.model.entity.Client;
 import com.projet.model.entity.Location;
 import com.projet.model.manager.ProjetManager;
 

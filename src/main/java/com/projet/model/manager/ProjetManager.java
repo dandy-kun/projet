@@ -3,29 +3,29 @@ package com.projet.model.manager;
 import java.util.List;
 
 import com.projet.model.entity.Chauffeur;
-import com.projet.model.entity.Clients;
+import com.projet.model.entity.Client;
 import com.projet.model.entity.Location;
-import com.projet.model.entity.Voitures;
+import com.projet.model.entity.Voiture;
 
 public interface ProjetManager {
 
-	public Boolean addVoitures(Voitures voitures);
+	public Boolean addVoitures(Voiture voitures);
 
 	public Boolean addChauffeur(Chauffeur chauffeur);
 
-	public Boolean addClients(Clients clients);
+	public Boolean addClients(Client clients);
 
 	public Boolean addLocation(Location location);
 
-	public Boolean removeClients(Clients clients);
+	public Boolean removeClients(Client clients);
 
-	public Clients getClient(Integer clientId);
+	public Client getClient(Integer clientId);
 
 	public Location getLocation(Integer clientId);
 
-	public void updateClient(Clients clients);
+	public void updateClient(Client clients);
 
-	public List<Clients> getClients();
+	public List<Client> getClients();
 
 	public Boolean removeLocation(Location location);
 

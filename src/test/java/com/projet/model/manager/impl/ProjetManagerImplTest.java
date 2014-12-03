@@ -20,13 +20,13 @@ import org.mockito.MockitoAnnotations;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import com.projet.model.dao.ChauffeurDAO;
-import com.projet.model.dao.ClientsDAO;
+import com.projet.model.dao.ClientDAO;
 import com.projet.model.dao.LocationDAO;
-import com.projet.model.dao.VoituresDAO;
+import com.projet.model.dao.VoitureDAO;
 import com.projet.model.entity.Chauffeur;
-import com.projet.model.entity.Clients;
+import com.projet.model.entity.Client;
 import com.projet.model.entity.Location;
-import com.projet.model.entity.Voitures;
+import com.projet.model.entity.Voiture;
 import com.projet.model.entity.enumeration.Statut;
 import com.projet.model.manager.ProjetManager;
 
@@ -34,10 +34,10 @@ import com.projet.model.manager.ProjetManager;
 public class ProjetManagerImplTest {
 
 	@Mock
-	private ClientsDAO clientDao;
+	private ClientDAO clientDao;
 
 	@Mock
-	private VoituresDAO voituresDao;
+	private VoitureDAO voituresDao;
 
 	@Mock
 	private LocationDAO locationDao;
@@ -63,7 +63,7 @@ public class ProjetManagerImplTest {
 		// Mockito.when(voituresDao.addVoiture(Mockito.any(Voitures.class))).thenReturn(
 		// Boolean.TRUE);
 
-		final Voitures voitures = new Voitures(1, "bentley", "gt continental",
+		final Voiture voitures = new Voiture(1, "bentley", "gt continental",
 				"bleue", 2014, 5000, Statut.LIBRE, 6000, 1000);
 		projetManagerImpl.addVoitures(voitures);
 		final Boolean b1 = projetManagerImpl.addVoitures(voitures);
@@ -75,10 +75,10 @@ public class ProjetManagerImplTest {
 	public void testGetClients() {
 		// Mockito.when(clientsDao.getClients(Mockito.any(Voitures.class))).thenReturn(
 		// Boolean.TRUE);
-		final Clients client = new Clients(1, "Lecomte", "Henry", "Lille");
+		final Client client = new Client(1, "Lecomte", "Henry", "Lille");
 		projetManagerImpl.addClients(client);
 		projetManagerImpl.getClient(client.getId());
-		final List<Clients> listClient = projetManagerImpl.getClients();
+		final List<Client> listClient = projetManagerImpl.getClients();
 		Assert.assertNotNull(listClient);
 		Assert.assertEquals(listClient.size(), 1);
 
@@ -99,7 +99,7 @@ public class ProjetManagerImplTest {
 		Mockito.when(
 				chauffeurDao.createChauffeur(Matchers.any(Chauffeur.class)))
 				.thenReturn(Boolean.TRUE);
-		final Clients client = new Clients(1, "Lecomte", "Henry", "Lille");
+		final Client client = new Client(1, "Lecomte", "Henry", "Lille");
 		projetManagerImpl.addClients(client);
 		final Boolean b1 = projetManagerImpl.addClients(client);
 		Assert.assertTrue(b1);
@@ -127,7 +127,7 @@ public class ProjetManagerImplTest {
 		Mockito.when(
 				chauffeurDao.createChauffeur(Matchers.any(Chauffeur.class)))
 				.thenReturn(Boolean.TRUE);
-		final Clients client = new Clients(1, "Lecomte", "Henry", "Lille");
+		final Client client = new Client(1, "Lecomte", "Henry", "Lille");
 		projetManagerImpl.removeClients(client);
 		final Boolean b1 = projetManagerImpl.removeClients(client);
 		Assert.assertTrue(b1);
@@ -135,12 +135,12 @@ public class ProjetManagerImplTest {
 
 	@Test
 	public void testGetClientsInteger() {
-		Mockito.when(clientDao.getClients(Matchers.any(Clients.class)))
+		Mockito.when(clientDao.getClients(Matchers.any(Client.class)))
 				.thenReturn(Boolean.TRUE);
-		final Clients client = new Clients(1, "Lecomte", "Henry", "Lille");
+		final Client client = new Client(1, "Lecomte", "Henry", "Lille");
 		projetManagerImpl.addClients(client);
 		projetManagerImpl.getClient(client.getId());
-		final List<Clients> listClient = projetManagerImpl.getClients();
+		final List<Client> listClient = projetManagerImpl.getClients();
 		Assert.assertNotNull(listClient);
 		Assert.assertEquals(listClient.size(), 1);
 	}
@@ -150,7 +150,7 @@ public class ProjetManagerImplTest {
 		Mockito.when(
 				chauffeurDao.createChauffeur(Matchers.any(Chauffeur.class)))
 				.thenReturn(Boolean.TRUE);
-		final Clients client = new Clients(1, "Lecomte", "Henry", "Lille");
+		final Client client = new Client(1, "Lecomte", "Henry", "Lille");
 
 		projetManagerImpl.addClients(client);
 		projetManagerImpl.updateClient(client);

@@ -19,7 +19,7 @@ public class Location implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ID", nullable = false)
 	private int id;
 	@Column(name = "DATELOCATION", nullable = false)
@@ -30,36 +30,37 @@ public class Location implements Serializable {
 	private Etat etat;
 	@Column(name = "PRIX", nullable = false)
 	private float prix;
-	@Column(name = "VOITURE", nullable = false)
-	private Voitures voiture_id;
 	@ManyToOne
-	private Clients client_id;
+	private Voiture voiture;
 	@ManyToOne
-	private Chauffeur chauffeur_id;
+	private Client client;
+	@ManyToOne
+	private Chauffeur chauffeur;
 
 	public Location() {
 		super();
 	}
 
-	public Location(int id, Date dateLocation, Date dateRetour, Etat etat,
-			float prix, Voitures voiture_id, Clients client_id,
-			Chauffeur chauffeur_id) {
+	public Location(final int id, final Date dateLocation,
+			final Date dateRetour, final Etat etat, final float prix,
+			final Voiture voiture_id, final Client client_id,
+			final Chauffeur chauffeur_id) {
 		super();
 		this.id = id;
 		this.dateLocation = dateLocation;
 		this.dateRetour = dateRetour;
 		this.etat = etat;
 		this.prix = prix;
-		this.voiture_id = voiture_id;
-		this.client_id = client_id;
-		this.chauffeur_id = chauffeur_id;
+		voiture = voiture_id;
+		client = client_id;
+		chauffeur = chauffeur_id;
 	}
 
 	public int getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(final int id) {
 		this.id = id;
 	}
 
@@ -67,7 +68,7 @@ public class Location implements Serializable {
 		return dateLocation;
 	}
 
-	public void setDateLocation(Date dateLocation) {
+	public void setDateLocation(final Date dateLocation) {
 		this.dateLocation = dateLocation;
 	}
 
@@ -75,7 +76,7 @@ public class Location implements Serializable {
 		return dateRetour;
 	}
 
-	public void setDateRetour(Date dateRetour) {
+	public void setDateRetour(final Date dateRetour) {
 		this.dateRetour = dateRetour;
 	}
 
@@ -83,7 +84,7 @@ public class Location implements Serializable {
 		return etat;
 	}
 
-	public void setEtat(Etat etat) {
+	public void setEtat(final Etat etat) {
 		this.etat = etat;
 	}
 
@@ -91,40 +92,39 @@ public class Location implements Serializable {
 		return prix;
 	}
 
-	public void setPrix(float prix) {
+	public void setPrix(final float prix) {
 		this.prix = prix;
 	}
 
-	public Voitures getVoiture_id() {
-		return voiture_id;
+	public Voiture getVoiture_id() {
+		return voiture;
 	}
 
-	public void setVoiture_id(Voitures voiture_id) {
-		this.voiture_id = voiture_id;
+	public void setVoiture_id(final Voiture voiture_id) {
+		voiture = voiture_id;
 	}
 
-	public Clients getClient_id() {
-		return client_id;
+	public Client getClient_id() {
+		return client;
 	}
 
-	public void setClient_id(Clients client_id) {
-		this.client_id = client_id;
+	public void setClient_id(final Client client_id) {
+		client = client_id;
 	}
 
 	public Chauffeur getChauffeur_id() {
-		return chauffeur_id;
+		return chauffeur;
 	}
 
-	public void setChauffeur_id(Chauffeur chauffeur_id) {
-		this.chauffeur_id = chauffeur_id;
+	public void setChauffeur_id(final Chauffeur chauffeur_id) {
+		chauffeur = chauffeur_id;
 	}
 
-	@Override
-	public String toString() {
-		return "Location [id=" + id + ", dateLocation=" + dateLocation
-				+ ", dateRetour=" + dateRetour + ", etat=" + etat + ", prix="
-				+ prix + ", voiture_id=" + voiture_id + ", client_id="
-				+ client_id + ", chauffeur_id=" + chauffeur_id + "]";
-	}
+	/*
+	 * @Override public String toString() { return "Location [id=" + id +
+	 * ", dateLocation=" + dateLocation + ", dateRetour=" + dateRetour +
+	 * ", etat=" + etat + ", prix=" + prix + ", voiture_id=" + voiture_id +
+	 * ", client_id=" + client_id + ", chauffeur_id=" + chauffeur_id + "]"; }
+	 */
 
 }

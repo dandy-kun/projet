@@ -52,7 +52,7 @@
           <p><a class="btn" href="./Carousel Template · Bootstrap_files/Carousel Template · Bootstrap.html">View details »</a></p>
         </div><!-- /.span4 -->
         <div class="span4">
-          <img class="img-circle" data-src="holder.js/140x140" alt="140x140" src="Carousel Template · Bootstrap_files/1.png" style="width: 140px; height: 140px;">
+          <img class="img-circle" data-src="holder.js/140x140" alt="140x140" src="image/1.png" style="width: 140px; height: 140px;">
           <h2>Location voiture Sport et Prestige</h2>
           <p>
           Laisser vous guider par le plaisir... Voici les véhicules de luxe que nous vous proposons : Ferrari, Lamborghini, Aston Martin, sont les plus connues mais bien d'autres modèles vous sont proposés selon vos goût, vos envies, vos impératifs. </p>

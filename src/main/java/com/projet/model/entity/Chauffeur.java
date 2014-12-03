@@ -1,13 +1,16 @@
 package com.projet.model.entity;
 
-
-import java.util.HashMap;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Chauffeur implements Serializable {
@@ -16,15 +19,19 @@ public class Chauffeur implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ID", nullable = false)
-	private int Id;
+	private Integer Id;
 	@Column(name = "NOM", nullable = false)
 	private String nom;
 	@Column(name = "PRENOM", nullable = false)
 	private String prenom;
 	@Column(name = "TARIF", nullable = false)
-	private float tarif;
+	private Float tarif;
+
+	@OneToMany(mappedBy = "chauffeur", cascade = { CascadeType.PERSIST,
+			CascadeType.REMOVE })
+	private List<Location> listLocation = new ArrayList<Location>();
 
 	public Chauffeur() {
 		super();
@@ -99,9 +106,25 @@ public class Chauffeur implements Serializable {
 		this.tarif = tarif;
 	}
 
+	public List<Location> getListLocation() {
+		return listLocation;
+	}
+
+	public void setListLocation(final List<Location> listLocation) {
+		this.listLocation = listLocation;
+	}
+
+	public void setId(final Integer id) {
+		Id = id;
+	}
+
+	public void setTarif(final Float tarif) {
+		this.tarif = tarif;
+	}
+
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
@@ -110,8 +133,4 @@ public class Chauffeur implements Serializable {
 				+ ", tarif=" + tarif + "]";
 	}
 
-	public HashMap<String, Object> getPremon() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }

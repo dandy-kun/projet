@@ -71,9 +71,15 @@ public class ProjetManagerImplTest {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testGetClient() {
 		Mockito.when(clientDao.getClients(Matchers.any(Clients.class)))
 				.thenReturn(Boolean.TRUE);
+=======
+	public void testGetClients() {
+		// Mockito.when(clientsDao.getClients(Mockito.any(Voitures.class))).thenReturn(
+		// Boolean.TRUE);
+>>>>>>> branch 'master' of https://github.com/dandy-kun/projet.git
 		final Client client = new Client(1, "Lecomte", "Henry", "Lille");
 		projetManagerImpl.addClients(client);
 		projetManagerImpl.getClient(client.getId());
@@ -136,7 +142,11 @@ public class ProjetManagerImplTest {
 	@Test
 	public void testGetClientsInteger() {
 		Mockito.when(clientDao.getClients(Matchers.any(Client.class)))
+<<<<<<< HEAD
 		.thenReturn(Boolean.TRUE);
+=======
+				.thenReturn(Boolean.TRUE);
+>>>>>>> branch 'master' of https://github.com/dandy-kun/projet.git
 		final Client client = new Client(1, "Lecomte", "Henry", "Lille");
 		projetManagerImpl.addClients(client);
 		projetManagerImpl.getClient(client.getId());

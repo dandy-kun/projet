@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.projet.model.entity.Clients;
+import com.projet.model.entity.Client;
 import com.projet.model.manager.ProjetManager;
 
 @Controller
@@ -30,21 +30,21 @@ public class ClientsController {
 	@RequestMapping
 	public String printClient(final ModelMap model) {
 		init();
-		final List<Clients> list = projetManager.getClients();
+		final List<Client> list = projetManager.getClients();
 		model.addAttribute("clients", list);
 		return "client";
 	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public String addClient(final ModelMap model) {
-		final Clients client = new Clients();
-		model.addAttribute("client", new Clients());
+		final Client client = new Client();
+		model.addAttribute("client", new Client());
 		return "addClient";
 	}
 
 	// Traitement
 	@RequestMapping(value = "add", method = RequestMethod.POST)
-	public String handleForm(@ModelAttribute("client") final Clients client,
+	public String handleForm(@ModelAttribute("client") final Client client,
 			final ModelMap model) {
 
 		if (client != null && client.getNom() != null
@@ -70,7 +70,7 @@ public class ClientsController {
 				"spring.xml");
 		final ProjetManager projetManager = (ProjetManager) ctx
 				.getBean("projetManagerImpl");
-		final Clients client = projetManager.getClient(clientId);
+		final Client client = projetManager.getClient(clientId);
 		model.addAttribute("client", client);
 		return "modifClient";
 
@@ -78,7 +78,7 @@ public class ClientsController {
 
 	@RequestMapping(value = "/edit/{clientId}", method = RequestMethod.POST)
 	public String editClientReponse(
-			@ModelAttribute("client") final Clients client,
+			@ModelAttribute("client") final Client client,
 			@PathVariable("clientId") final Integer clientId,
 			final ModelMap model) {
 

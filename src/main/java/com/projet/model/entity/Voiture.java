@@ -1,23 +1,27 @@
 package com.projet.model.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import com.projet.model.entity.enumeration.Statut;
 
 @Entity
-public class Voitures implements Serializable {
+public class Voiture implements Serializable {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ID", nullable = false)
 	private int id;
 	@Column(name = "MARQUE", nullable = false)
@@ -36,12 +40,15 @@ public class Voitures implements Serializable {
 	private float caution;
 	@Column(name = "TARIF", nullable = false)
 	private float tarif;
+	@OneToMany(mappedBy = "voiture", cascade = { CascadeType.PERSIST,
+			CascadeType.REMOVE })
+	private List<Location> listLocation = new ArrayList<Location>();
 
-	public Voitures() {
+	public Voiture() {
 		super();
 	}
 
-	public Voitures(final int id, final String marque, final String modele,
+	public Voiture(final int id, final String marque, final String modele,
 			final String couleur, final int annee, final int kilometre,
 			final Statut statut, final float caution, final float tarif) {
 		super();
@@ -126,6 +133,14 @@ public class Voitures implements Serializable {
 
 	public void setTarif(final float tarif) {
 		this.tarif = tarif;
+	}
+
+	public List<Location> getListLocation() {
+		return listLocation;
+	}
+
+	public void setListLocation(final List<Location> listLocation) {
+		this.listLocation = listLocation;
 	}
 
 	@Override

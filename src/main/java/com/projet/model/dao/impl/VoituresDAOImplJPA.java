@@ -20,6 +20,7 @@ public class VoituresDAOImplJPA implements VoituresDAO {
 	@PersistenceContext
 	private EntityManager entityManager;
 
+	@Override
 	public boolean addVoitures(final Voitures obj) throws SQLException {
 		if (obj == null) {
 			return false;
@@ -28,6 +29,7 @@ public class VoituresDAOImplJPA implements VoituresDAO {
 		return true;
 	}
 
+	@Override
 	public boolean deleteVoitures(final Voitures obj) throws SQLException {
 		if (obj == null) {
 			return false;
@@ -36,6 +38,7 @@ public class VoituresDAOImplJPA implements VoituresDAO {
 		return true;
 	}
 
+	@Override
 	public boolean updateVoitures(final Voitures obj) throws SQLException {
 		if (obj == null) {
 			return false;
@@ -44,6 +47,7 @@ public class VoituresDAOImplJPA implements VoituresDAO {
 		return true;
 	}
 
+	@Override
 	public Voitures getVoitures(final Integer id) throws SQLException {
 		if (id == null) {
 			return null;
@@ -51,12 +55,19 @@ public class VoituresDAOImplJPA implements VoituresDAO {
 		return entityManager.find(Voitures.class, id);
 	}
 
+	@Override
 	public List<Voitures> getAllVoitures() {
 		final CriteriaBuilder builder = entityManager.getCriteriaBuilder();
 		final CriteriaQuery<Voitures> cq = builder.createQuery(Voitures.class);
 		final Root<Voitures> root = cq.from(Voitures.class);
 		cq.select(root);
 		return entityManager.createQuery(cq).getResultList();
+	}
+
+	@Override
+	public Object addVoiture(final Voitures any) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

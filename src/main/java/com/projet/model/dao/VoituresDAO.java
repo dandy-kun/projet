@@ -16,4 +16,6 @@ public interface VoituresDAO {
 	public boolean updateVoitures(Voitures voitures) throws SQLException;
 
 	public boolean deleteVoitures(Voitures voitures) throws SQLException;
+
+	public Object addVoiture(Voitures any);
 }

@@ -15,6 +15,7 @@ public class ClientsDAOImplJPA implements ClientsDAO {
 
 	private EntityManager entityManager;
 
+	@Override
 	public List<ClientsController> getAllClient() {
 
 		final CriteriaBuilder builder = entityManager.getCriteriaBuilder();
@@ -26,6 +27,7 @@ public class ClientsDAOImplJPA implements ClientsDAO {
 
 	}
 
+	@Override
 	public Clients getClient(final Integer id) {
 		if (id == null) {
 			return null;
@@ -34,6 +36,7 @@ public class ClientsDAOImplJPA implements ClientsDAO {
 
 	}
 
+	@Override
 	public boolean addClient(final Clients client) {
 		if (client == null) {
 			return false;
@@ -42,6 +45,7 @@ public class ClientsDAOImplJPA implements ClientsDAO {
 		return true;
 	}
 
+	@Override
 	public boolean updateClient(final Clients client) {
 		if (client == null) {
 			return false;
@@ -51,6 +55,7 @@ public class ClientsDAOImplJPA implements ClientsDAO {
 
 	}
 
+	@Override
 	public boolean deleteClient(final Clients client) {
 		if (client == null) {
 			return false;
@@ -58,6 +63,12 @@ public class ClientsDAOImplJPA implements ClientsDAO {
 		entityManager.remove(client);
 		return true;
 
+	}
+
+	@Override
+	public Object getClients(final Clients any) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

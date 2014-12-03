@@ -20,13 +20,13 @@ import org.mockito.MockitoAnnotations;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import com.projet.model.dao.ChauffeurDAO;
-import com.projet.model.dao.ClientsDAO;
+import com.projet.model.dao.ClientDAO;
 import com.projet.model.dao.LocationDAO;
-import com.projet.model.dao.VoituresDAO;
+import com.projet.model.dao.VoitureDAO;
 import com.projet.model.entity.Chauffeur;
-import com.projet.model.entity.Clients;
+import com.projet.model.entity.Client;
 import com.projet.model.entity.Location;
-import com.projet.model.entity.Voitures;
+import com.projet.model.entity.Voiture;
 import com.projet.model.entity.enumeration.Statut;
 import com.projet.model.manager.ProjetManager;
 
@@ -34,17 +34,16 @@ import com.projet.model.manager.ProjetManager;
 public class ProjetManagerImplTest {
 
 	@Mock
-	private ClientsDAO clientDao;
+	private ClientDAO clientDao;
 
 	@Mock
-	private VoituresDAO voituresDao;
+	private VoitureDAO voituresDao;
 
 	@Mock
 	private LocationDAO locationDao;
 
 	@Mock
 	private ChauffeurDAO chauffeurDao;
-
 	@InjectMocks
 	private final ProjetManager projetManagerImpl = new ProjetManagerImpl();
 
@@ -60,10 +59,10 @@ public class ProjetManagerImplTest {
 	@Test
 	public void testAddVoitures() throws SQLException {
 
-		// Mockito.when(voituresDao.addVoiture(Mockito.any(Voitures.class))).thenReturn(
-		// Boolean.TRUE);
+		Mockito.when(voituresDao.addVoiture(Matchers.any(Voitures.class)))
+				.thenReturn(Boolean.TRUE);
 
-		final Voitures voitures = new Voitures(1, "bentley", "gt continental",
+		final Voiture voitures = new Voiture(1, "bentley", "gt continental",
 				"bleue", 2014, 5000, Statut.LIBRE, 6000, 1000);
 		projetManagerImpl.addVoitures(voitures);
 		final Boolean b1 = projetManagerImpl.addVoitures(voitures);
@@ -72,13 +71,13 @@ public class ProjetManagerImplTest {
 	}
 
 	@Test
-	public void testGetClients() {
-		// Mockito.when(clientsDao.getClients(Mockito.any(Voitures.class))).thenReturn(
-		// Boolean.TRUE);
-		final Clients client = new Clients(1, "Lecomte", "Henry", "Lille");
+	public void testGetClient() {
+		Mockito.when(clientDao.getClients(Matchers.any(Clients.class)))
+				.thenReturn(Boolean.TRUE);
+		final Client client = new Client(1, "Lecomte", "Henry", "Lille");
 		projetManagerImpl.addClients(client);
 		projetManagerImpl.getClient(client.getId());
-		final List<Clients> listClient = projetManagerImpl.getClients();
+		final List<Client> listClient = projetManagerImpl.getClients();
 		Assert.assertNotNull(listClient);
 		Assert.assertEquals(listClient.size(), 1);
 
@@ -86,8 +85,9 @@ public class ProjetManagerImplTest {
 
 	@Test
 	public void testAddChauffeur() {
-		// Mockito.when(chauffeurDao.addchauffeur(Mockito.any(Chauffeur.class))).thenReturn(
-		// Boolean.TRUE);
+		Mockito.when(
+				chauffeurDao.createChauffeur(Matchers.any(Chauffeur.class)))
+				.thenReturn(Boolean.TRUE);
 		final Chauffeur chauffeur = new Chauffeur(1, "Dupond", "Henry", 60);
 		projetManagerImpl.addChauffeur(chauffeur);
 		final Boolean b1 = projetManagerImpl.addChauffeur(chauffeur);
@@ -99,7 +99,7 @@ public class ProjetManagerImplTest {
 		Mockito.when(
 				chauffeurDao.createChauffeur(Matchers.any(Chauffeur.class)))
 				.thenReturn(Boolean.TRUE);
-		final Clients client = new Clients(1, "Lecomte", "Henry", "Lille");
+		final Client client = new Client(1, "Lecomte", "Henry", "Lille");
 		projetManagerImpl.addClients(client);
 		final Boolean b1 = projetManagerImpl.addClients(client);
 		Assert.assertTrue(b1);
@@ -111,9 +111,9 @@ public class ProjetManagerImplTest {
 				chauffeurDao.createChauffeur(Matchers.any(Chauffeur.class)))
 				.thenReturn(Boolean.TRUE);
 		final Date dateDebut = new SimpleDateFormat("mm/dd/yyyy", Locale.FRANCE)
-		.parse("12/25/2014");
+				.parse("12/25/2014");
 		final Date dateFin = new SimpleDateFormat("mm/dd/yyyy", Locale.FRANCE)
-				.parse("12/28/2014");
+		.parse("12/28/2014");
 
 		final Location location = new Location(1, dateDebut, dateFin, null,
 				3000.f, null, null, null);
@@ -127,7 +127,7 @@ public class ProjetManagerImplTest {
 		Mockito.when(
 				chauffeurDao.createChauffeur(Matchers.any(Chauffeur.class)))
 				.thenReturn(Boolean.TRUE);
-		final Clients client = new Clients(1, "Lecomte", "Henry", "Lille");
+		final Client client = new Client(1, "Lecomte", "Henry", "Lille");
 		projetManagerImpl.removeClients(client);
 		final Boolean b1 = projetManagerImpl.removeClients(client);
 		Assert.assertTrue(b1);
@@ -135,12 +135,12 @@ public class ProjetManagerImplTest {
 
 	@Test
 	public void testGetClientsInteger() {
-		Mockito.when(clientDao.getClients(Matchers.any(Clients.class)))
-				.thenReturn(Boolean.TRUE);
-		final Clients client = new Clients(1, "Lecomte", "Henry", "Lille");
+		Mockito.when(clientDao.getClients(Matchers.any(Client.class)))
+		.thenReturn(Boolean.TRUE);
+		final Client client = new Client(1, "Lecomte", "Henry", "Lille");
 		projetManagerImpl.addClients(client);
 		projetManagerImpl.getClient(client.getId());
-		final List<Clients> listClient = projetManagerImpl.getClients();
+		final List<Client> listClient = projetManagerImpl.getClients();
 		Assert.assertNotNull(listClient);
 		Assert.assertEquals(listClient.size(), 1);
 	}
@@ -150,7 +150,7 @@ public class ProjetManagerImplTest {
 		Mockito.when(
 				chauffeurDao.createChauffeur(Matchers.any(Chauffeur.class)))
 				.thenReturn(Boolean.TRUE);
-		final Clients client = new Clients(1, "Lecomte", "Henry", "Lille");
+		final Client client = new Client(1, "Lecomte", "Henry", "Lille");
 
 		projetManagerImpl.addClients(client);
 		projetManagerImpl.updateClient(client);

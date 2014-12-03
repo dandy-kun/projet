@@ -29,7 +29,7 @@ public class LocationController {
 				.getBean("projetManagerImpl");
 
 		final Location location = projetManager.getLocation(locationId);
-		final List<Clients> list = projetManager.getClients();
+		final List<Client> list = projetManager.getClients();
 
 		model.addAttribute("clients", list);
 

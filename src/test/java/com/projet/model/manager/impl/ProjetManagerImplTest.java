@@ -59,8 +59,8 @@ public class ProjetManagerImplTest {
 	@Test
 	public void testAddVoitures() throws SQLException {
 
-		Mockito.when(voituresDao.addVoiture(Matchers.any(Voitures.class)))
-				.thenReturn(Boolean.TRUE);
+		Mockito.when(voituresDao.addVoitures(Matchers.any(Voiture.class)))
+		.thenReturn(Boolean.TRUE);
 
 		final Voiture voitures = new Voiture(1, "bentley", "gt continental",
 				"bleue", 2014, 5000, Statut.LIBRE, 6000, 1000);
@@ -71,15 +71,10 @@ public class ProjetManagerImplTest {
 	}
 
 	@Test
-<<<<<<< HEAD
 	public void testGetClient() {
-		Mockito.when(clientDao.getClients(Matchers.any(Clients.class)))
-				.thenReturn(Boolean.TRUE);
-=======
-	public void testGetClients() {
-		// Mockito.when(clientsDao.getClients(Mockito.any(Voitures.class))).thenReturn(
-		// Boolean.TRUE);
->>>>>>> branch 'master' of https://github.com/dandy-kun/projet.git
+		Mockito.when(clientDao.getClients(Matchers.any(Client.class)))
+		.thenReturn(Boolean.TRUE);
+
 		final Client client = new Client(1, "Lecomte", "Henry", "Lille");
 		projetManagerImpl.addClients(client);
 		projetManagerImpl.getClient(client.getId());
@@ -117,9 +112,9 @@ public class ProjetManagerImplTest {
 				chauffeurDao.createChauffeur(Matchers.any(Chauffeur.class)))
 				.thenReturn(Boolean.TRUE);
 		final Date dateDebut = new SimpleDateFormat("mm/dd/yyyy", Locale.FRANCE)
-				.parse("12/25/2014");
+		.parse("12/25/2014");
 		final Date dateFin = new SimpleDateFormat("mm/dd/yyyy", Locale.FRANCE)
-		.parse("12/28/2014");
+				.parse("12/28/2014");
 
 		final Location location = new Location(1, dateDebut, dateFin, null,
 				3000.f, null, null, null);
@@ -142,11 +137,7 @@ public class ProjetManagerImplTest {
 	@Test
 	public void testGetClientsInteger() {
 		Mockito.when(clientDao.getClients(Matchers.any(Client.class)))
-<<<<<<< HEAD
-		.thenReturn(Boolean.TRUE);
-=======
 				.thenReturn(Boolean.TRUE);
->>>>>>> branch 'master' of https://github.com/dandy-kun/projet.git
 		final Client client = new Client(1, "Lecomte", "Henry", "Lille");
 		projetManagerImpl.addClients(client);
 		projetManagerImpl.getClient(client.getId());

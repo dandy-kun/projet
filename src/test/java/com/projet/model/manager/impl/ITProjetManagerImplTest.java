@@ -13,9 +13,9 @@ import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.projet.model.entity.Clients;
+import com.projet.model.entity.Client;
 import com.projet.model.entity.Location;
-import com.projet.model.entity.Voitures;
+import com.projet.model.entity.Voiture;
 import com.projet.model.manager.ProjetManager;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -41,11 +41,11 @@ public class ITProjetManagerImplTest {
 	@Test
 	public void testAddClients() throws SQLException {
 
-		final Clients clients = new Clients(1, "nom", "prenom", null);
+		final Client clients = new Client(1, "nom", "prenom", null);
 		final Location location = new Location();
-		final Voitures voitures = new Voitures(0, "Ferrari", null, null, 250,
-				0, null, 0, 0);
-		final Voitures voitures2 = new Voitures(0, "Aston", null, null, 300, 0,
+		final Voiture voitures = new Voiture(0, "Ferrari", null, null, 250, 0,
+				null, 0, 0);
+		final Voiture voitures2 = new Voiture(0, "Aston", null, null, 300, 0,
 				null, 0, 0);
 		projetManager.addVoitures(voitures);
 		projetManager.addVoitures(voitures2);

@@ -44,12 +44,11 @@ public class ProjetManagerImplTest {
 	private ChauffeurDAO chauffeurDao;
 
 	@InjectMocks
-	private ProjetManager projetManagerImpl;
+	private final ProjetManager projetManagerImpl = new ProjetManagerImpl();
 
 	@Before
 	public void setUp() throws Exception {
 		MockitoAnnotations.initMocks(this);
-		projetManagerImpl = new ProjetManagerImpl();
 	}
 
 	@After
@@ -110,7 +109,7 @@ public class ProjetManagerImplTest {
 		final Date dateDebut = new SimpleDateFormat("mm/dd/yyyy", Locale.FRANCE)
 				.parse("12/25/2014");
 		final Date dateFin = new SimpleDateFormat("mm/dd/yyyy", Locale.FRANCE)
-		.parse("12 / 28 / 14");
+		.parse("12/28/2014");
 
 		final Location location = new Location(1, dateDebut, dateFin, null,
 				3000.f, null, null, null);

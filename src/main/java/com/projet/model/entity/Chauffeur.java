@@ -1,5 +1,7 @@
 package com.projet.model.entity;
 
+import java.util.HashMap;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -94,12 +96,17 @@ public class Chauffeur {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
 		return "Chauffeur [Id=" + Id + ", nom=" + nom + ", prenom=" + prenom
 				+ ", tarif=" + tarif + "]";
+	}
+
+	public HashMap<String, Object> getPremon() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

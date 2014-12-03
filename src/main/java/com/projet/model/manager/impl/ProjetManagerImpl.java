@@ -8,23 +8,23 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.projet.model.dao.ChauffeurDAO;
-import com.projet.model.dao.ClientsDAO;
+import com.projet.model.dao.ClientDAO;
 import com.projet.model.dao.LocationDAO;
-import com.projet.model.dao.VoituresDAO;
+import com.projet.model.dao.VoitureDAO;
 import com.projet.model.entity.Chauffeur;
-import com.projet.model.entity.Clients;
+import com.projet.model.entity.Client;
 import com.projet.model.entity.Location;
-import com.projet.model.entity.Voitures;
+import com.projet.model.entity.Voiture;
 import com.projet.model.manager.ProjetManager;
 
 @Service
 public class ProjetManagerImpl implements ProjetManager {
 
 	@Autowired
-	private ClientsDAO clientDao;
+	private ClientDAO clientDao;
 
 	@Autowired
-	private VoituresDAO voituresDao;
+	private VoitureDAO voituresDao;
 
 	@Autowired
 	private LocationDAO locationDao;
@@ -36,7 +36,7 @@ public class ProjetManagerImpl implements ProjetManager {
 		super();
 	}
 
-	public Boolean addVoitures(final Voitures voitures) {
+	public Boolean addVoitures(final Voiture voitures) {
 		try {
 			voituresDao.addVoitures(voitures);
 		} catch (final SQLException e) {
@@ -52,7 +52,7 @@ public class ProjetManagerImpl implements ProjetManager {
 	}
 
 	@Transactional(readOnly = false)
-	public Boolean addClients(final Clients clients) {
+	public Boolean addClients(final Client clients) {
 		clientDao.addClient(clients);
 		return true;
 	}
@@ -68,38 +68,34 @@ public class ProjetManagerImpl implements ProjetManager {
 		return true;
 	}
 
-	public Boolean removeClients(final Clients clients) {
+	public Boolean removeClients(final Client clients) {
 		locationDao.deleteClients(clients);
 		return true;
 	}
 
-	public Clients getClient(final Integer clientsId) {
+	public Client getClient(final Integer clientsId) {
 		return null;
 	}
 
-	public void updateClient(final Clients clients) {
+	public void updateClient(final Client clients) {
 		clientDao.updateClient(clients);
 	}
 
-	public List<Clients> getClients(final Integer clientId) {
+	public List<Client> getClients(final Integer clientId) {
 
 		return null;
 	}
 
-	public List<Clients> getClients() {
+	public List<Client> getClients() {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-<<<<<<< HEAD
+	
 	public Location getLocation(final Integer clientId) {
 
 		return null;
 	}
-	
 
-=======
->>>>>>> branch 'master' of https://github.com/dandy-kun/projet.git
 	public Chauffeur getChauffeur(final Integer chauffeurId) {
 		// TODO Auto-generated method stub
 		return null;

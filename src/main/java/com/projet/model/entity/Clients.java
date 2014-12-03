@@ -29,7 +29,7 @@ public class Clients implements Serializable {
 		super();
 	}
 
-	public Clients(final String nom, final int id, final String prenom,
+	public Clients(final int id, final String nom, final String prenom,
 			final String adresse) {
 		super();
 		this.nom = nom;
@@ -100,7 +100,7 @@ public class Clients implements Serializable {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see java.lang.Object#toString()
 	 */
 	@Override

@@ -23,7 +23,7 @@ public interface ProjetManager {
 
 	public void updateClient(Clients clients);
 
-	public List<Clients> getClients(Integer clientId);
+	public List<Clients> getClients();
 
 	public Boolean removeLocation(Location location);
 }

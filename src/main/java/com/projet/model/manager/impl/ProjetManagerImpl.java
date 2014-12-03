@@ -86,4 +86,8 @@ public class ProjetManagerImpl implements ProjetManager {
 		return null;
 	}
 
+	public List<Clients> getClients() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

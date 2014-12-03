@@ -11,13 +11,13 @@
 
 	<tx:annotation-driven />
 
-	<context:component-scan base-package="com.projet.formation.magasin.model.dao.impl.jpa" />
-	<context:component-scan base-package="com.formation.magasin.model.manager.impl" />
+	<context:component-scan base-package="com.projet.model.dao.impl" />
+	<context:component-scan base-package="com.projet.model.manager" />
 
-	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"
 		destroy-method="close">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:3306/magasin" />
+		<property name="url" value="jdbc:mysql://localhost:3306/luxury" />
 		<property name="username" value="root" />
 		<property name="password" value="banane" />
 	</bean>
@@ -32,12 +32,5 @@
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
 
-	<context:component-scan base-package="com.formation.magasin.controller" />
-
-	<bean
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/WEB-INF/jsp/" />
-		<property name="suffix" value=".jsp" />
-	</bean>
 
 </beans>

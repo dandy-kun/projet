@@ -1,5 +1,6 @@
 package com.projet.model.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -12,7 +13,11 @@ import javax.persistence.ManyToOne;
 import com.projet.model.entity.enumeration.Etat;
 
 @Entity
-public class Location {
+public class Location implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "ID", nullable = false)

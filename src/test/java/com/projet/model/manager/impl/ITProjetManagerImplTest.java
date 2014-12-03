@@ -41,7 +41,7 @@ public class ITProjetManagerImplTest {
 	@Test
 	public void testAddClients() throws SQLException {
 
-		final Client clients = new Client(1, "nom", "prenom", null);
+		final Client client = new Client(1, "nom", "prenom", null);
 		final Location location = new Location();
 		final Voiture voitures = new Voiture(0, "Ferrari", null, null, 250, 0,
 				null, 0, 0);
@@ -50,9 +50,9 @@ public class ITProjetManagerImplTest {
 		projetManager.addVoitures(voitures);
 		projetManager.addVoitures(voitures2);
 
-		location.setClient_id(clients);
+		location.setClient_id(client);
 
-		final Boolean b1 = projetManager.addClients(clients);
+		final Boolean b1 = projetManager.addClients(client);
 		Assert.assertTrue(b1);
 
 		final Boolean b2 = projetManager.addClients(null);

@@ -11,8 +11,12 @@
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
 			<property name="hibernate.showSql" value="true" />
-			<!-- <property name="hibernate.hbm2ddl.auto" value="create" /> -->
+			<!--<property name="hibernate.hbm2ddl.auto" value="create"/>-->
 			<property name="hibernate.connection.autocommit" value="true" />
+			<property name="show_sql" value="true"/>
+			<property name="hibernate.format_sql" value="true"/>
+			<property name="use_sql_comments" value="true"/>
+			
 		</properties>
 	</persistence-unit>
 </persistence>

@@ -10,7 +10,6 @@ import javax.persistence.criteria.Root;
 
 import org.springframework.stereotype.Repository;
 
-import com.projet.controller.ClientsController;
 import com.projet.model.dao.ClientDAO;
 import com.projet.model.entity.Client;
 
@@ -21,12 +20,11 @@ public class ClientDAOImplJPA implements ClientDAO {
 	private EntityManager entityManager;
 
 	@Override
-	public List<ClientsController> getAllClient() {
+	public List<Client> getAllClient() {
 
 		final CriteriaBuilder builder = entityManager.getCriteriaBuilder();
-		final CriteriaQuery<ClientsController> cq = builder
-				.createQuery(ClientsController.class);
-		final Root<ClientsController> root = cq.from(ClientsController.class);
+		final CriteriaQuery<Client> cq = builder.createQuery(Client.class);
+		final Root<Client> root = cq.from(Client.class);
 		cq.select(root);
 		return entityManager.createQuery(cq).getResultList();
 

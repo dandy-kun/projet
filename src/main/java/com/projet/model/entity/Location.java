@@ -15,7 +15,7 @@ import com.projet.model.entity.enumeration.Etat;
 @Entity
 public class Location implements Serializable {
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1L;
 	@Id
@@ -118,6 +118,16 @@ public class Location implements Serializable {
 
 	public void setChauffeur_id(final Chauffeur chauffeur_id) {
 		chauffeur = chauffeur_id;
+	}
+
+	public Object getLignesLocation() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Object getLocation() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	/*

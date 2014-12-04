@@ -11,6 +11,8 @@ public interface ProjetManager {
 
 	public Boolean addVoitures(Voiture voitures);
 
+	public List<Voiture> getVoitures();
+
 	public Boolean addChauffeur(Chauffeur chauffeur);
 
 	public Boolean addClients(Client clients);
@@ -34,4 +36,6 @@ public interface ProjetManager {
 	public List<Chauffeur> getChauffeurs();
 
 	public void updateChauffeur(Chauffeur chauffeur);
+
+
 }

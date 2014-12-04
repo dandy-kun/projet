@@ -37,6 +37,7 @@ public class ProjetManagerImpl implements ProjetManager {
 	}
 
 	@Override
+	@Transactional(readOnly = false)
 	public Boolean addVoitures(final Voiture voitures) {
 		try {
 			voituresDao.addVoitures(voitures);
@@ -96,8 +97,7 @@ public class ProjetManagerImpl implements ProjetManager {
 
 	@Override
 	public List<Client> getClients() {
-		// TODO Auto-generated method stub
-		return null;
+		return clientDao.getAllClient();	
 	}
 
 	@Override
@@ -114,13 +114,22 @@ public class ProjetManagerImpl implements ProjetManager {
 
 	@Override
 	public List<Chauffeur> getChauffeurs() {
-		// TODO Auto-generated method stub
-		return null;
+
+		return chauffeurDao.getAllChauffeur();
 	}
 
 	@Override
 	public void updateChauffeur(final Chauffeur chauffeur) {
 		// TODO Auto-generated method stub
 
+	}
+
+
+	
+
+	@Override
+	public List<Voiture> getVoitures() {
+		return voituresDao.getAllVoitures();
+	
 	}
 }

@@ -97,7 +97,11 @@ public class ProjetManagerImpl implements ProjetManager {
 
 	@Override
 	public List<Client> getClients() {
+<<<<<<< HEAD
 		return clientDao.getAllClient();	
+=======
+		return clientDao.getAllClient();
+>>>>>>> branch 'master' of https://github.com/dandy-kun/projet.git
 	}
 
 	@Override
@@ -114,7 +118,10 @@ public class ProjetManagerImpl implements ProjetManager {
 
 	@Override
 	public List<Chauffeur> getChauffeurs() {
+<<<<<<< HEAD
 
+=======
+>>>>>>> branch 'master' of https://github.com/dandy-kun/projet.git
 		return chauffeurDao.getAllChauffeur();
 	}
 
@@ -124,6 +131,7 @@ public class ProjetManagerImpl implements ProjetManager {
 
 	}
 
+<<<<<<< HEAD
 
 	
 
@@ -131,5 +139,10 @@ public class ProjetManagerImpl implements ProjetManager {
 	public List<Voiture> getVoitures() {
 		return voituresDao.getAllVoitures();
 	
+=======
+	@Override
+	public List<Voiture> getVoitures() {
+		return voituresDao.getAllVoitures();
+>>>>>>> branch 'master' of https://github.com/dandy-kun/projet.git
 	}
 }

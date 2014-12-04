@@ -16,13 +16,14 @@ import com.projet.model.entity.enumeration.Statut;
 
 @Entity
 public class Voiture implements Serializable {
+
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -2038433967023517262L;
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "ID", nullable = false)
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "ID", nullable = true)
 	private int id;
 	@Column(name = "MARQUE", nullable = false)
 	private String marque;

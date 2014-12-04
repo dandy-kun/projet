@@ -20,7 +20,7 @@
             <div class="carousel-caption">
               <h1>Véhicule avec chauffeur.</h1>
               <p class="lead">Fort de plusieurs années d'expérience, notre équipe met tout son savoir-faire à votre disposition afin de vous proposer le meilleur en matière de luxe.</p>
-              <a class="btn btn-large btn-primary" href="./Carousel Template · Bootstrap_files/Carousel Template · Bootstrap.html">décourvir nos véhicules.</a>
+              <a class="btn btn-large btn-primary" href="location">décourvir nos véhicules.</a>
             </div>
           </div>
         </div>
@@ -66,7 +66,7 @@
 
       <div class="featurette">
         <img class="featurette-image pull-right" src="resources/image/rental.jpg">
-        <h2 class="featurette-heading">Location de véhicule de luxe. <span class="muted">A partir de 10€ le km.</span></h2>
+        <h2 class="featurette-heading">Location de véhicule de luxe. <span class="muted">A partir de 5€ le km.</span></h2>
         <p class="lead">LUXURY Rent met à votre disposition sa large gamme de véhicules à la location pour un jour, un week-end, une semaine ou plus. Découvrez dès maintenant notre sélection de véhicules disponibles à la location courte durée.En louant un véhicule chez LUXURY Rent, vous profiterez d'un accueil Haut de gamme et d'une mise en main personnalisée du véhicule afin qu'aucune de vos questions ne reste sans réponse. Un service et un niveau d'équipement haut de gamme pour une location de prestige.</p>
       </div>
       <hr class="featurette-divider">

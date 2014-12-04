@@ -20,6 +20,7 @@ public class VoitureDAOImplJPA implements VoitureDAO {
 	@PersistenceContext
 	private EntityManager entityManager;
 
+	@Override
 	public boolean addVoitures(final Voiture obj) throws SQLException {
 		if (obj == null) {
 			return false;
@@ -28,6 +29,7 @@ public class VoitureDAOImplJPA implements VoitureDAO {
 		return true;
 	}
 
+	@Override
 	public boolean deleteVoitures(final Voiture obj) throws SQLException {
 		if (obj == null) {
 			return false;
@@ -36,6 +38,7 @@ public class VoitureDAOImplJPA implements VoitureDAO {
 		return true;
 	}
 
+	@Override
 	public boolean updateVoitures(final Voiture obj) throws SQLException {
 		if (obj == null) {
 			return false;
@@ -44,6 +47,7 @@ public class VoitureDAOImplJPA implements VoitureDAO {
 		return true;
 	}
 
+	@Override
 	public Voiture getVoitures(final Integer id) throws SQLException {
 		if (id == null) {
 			return null;
@@ -51,6 +55,7 @@ public class VoitureDAOImplJPA implements VoitureDAO {
 		return entityManager.find(Voiture.class, id);
 	}
 
+	@Override
 	public List<Voiture> getAllVoitures() {
 		final CriteriaBuilder builder = entityManager.getCriteriaBuilder();
 		final CriteriaQuery<Voiture> cq = builder.createQuery(Voiture.class);

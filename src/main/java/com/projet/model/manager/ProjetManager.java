@@ -1,5 +1,6 @@
 package com.projet.model.manager;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import com.projet.model.entity.Chauffeur;
@@ -12,6 +13,8 @@ public interface ProjetManager {
 	public Boolean addVoitures(Voiture voitures);
 
 	public List<Voiture> getVoitures();
+
+	public Boolean removeVoitures(Integer id) throws SQLException;
 
 	public Boolean addChauffeur(Chauffeur chauffeur);
 

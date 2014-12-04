@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8" isELIgnored="false"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ include file="header.jsp"%>
 
 <!-- Marketing messaging and featurettes
@@ -43,7 +43,6 @@ pageEncoding="UTF-8" isELIgnored="false"%>
 					</tbody>
 				</table>
 			</div>
-			</p>
 		</div>
 		<!-- /.span4 -->
 		<div class="span4">
@@ -77,45 +76,7 @@ pageEncoding="UTF-8" isELIgnored="false"%>
 					</tbody>
 				</table>
 			</div>
-			</p>
 		</div>
-		<!-- /.span4 -->
-		<div class="span4">
-			<p>
-			<div class="table-responsive">
-				<table class="table">
-					<caption>
-						<h2>voiture Sport et Prestige</h2>
-					</caption>
-					<thead>
-						<tr>
-							<th>Product</th>
-							<th>Status</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>Product1</td>
-							<td>Pending</td>
-						</tr>
-						<tr>
-							<td>Product2</td>
-							<td>Delivered</td>
-						</tr>
-						<tr>
-							<td>Product3</td>
-							<td>In Call to confirm</td>
-						</tr>
-						<tr>
-							<td>Product4</td>
-							<td>Declined</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			</p>
-		</div>
-		<!-- /.span4 -->
 	</div>
 	<!-- /.row -->
 	<!-- /END THE FEATURETTES -->

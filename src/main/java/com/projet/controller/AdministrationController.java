@@ -1,20 +1,26 @@
 package com.projet.controller;
 
+import java.sql.SQLException;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.projet.model.entity.Chauffeur;
 import com.projet.model.entity.Voiture;
 import com.projet.model.manager.ProjetManager;
 
 @Controller
 @RequestMapping("/administration")
 public class AdministrationController {
-
+	@Autowired
 	private ProjetManager projetManager;
 
 	private void init() {
@@ -26,6 +32,10 @@ public class AdministrationController {
 	@RequestMapping()
 	public String name(final ModelMap model) {
 		init();
+		final List<Voiture> list = projetManager.getVoitures();
+		model.addAttribute("voitures", list);
+		final List<Chauffeur> listCh = projetManager.getChauffeurs();
+		model.addAttribute("chauffeurs", listCh);
 		final Voiture voiture = new Voiture();
 		model.addAttribute("voiture", voiture);
 		return "administration";
@@ -46,6 +56,16 @@ public class AdministrationController {
 			final ModelMap model) {
 		init();
 		projetManager.addVoitures(voiture);
+		return "redirect:/location";
+
+	}
+
+	@RequestMapping(value = "/remove/{Id}", method = RequestMethod.GET)
+	public String removeClientReponse(@PathVariable("Id") final Integer Id,
+			final ModelMap model) throws SQLException {
+		init();
+
+		projetManager.removeVoitures(Id);
 		return "redirect:/location";
 
 	}

@@ -69,12 +69,14 @@ public class ProjetManagerImpl implements ProjetManager {
 	}
 
 	@Override
+	@Transactional(readOnly = false)
 	public Boolean removeLocation(final Location location) {
 		locationDao.deleteLocation(location);
 		return true;
 	}
 
 	@Override
+	@Transactional(readOnly = false)
 	public Boolean removeClients(final Client client) {
 		clientDao.deleteClient(client);
 		return true;
@@ -86,6 +88,7 @@ public class ProjetManagerImpl implements ProjetManager {
 	}
 
 	@Override
+	@Transactional(readOnly = false)
 	public void updateClient(final Client clients) {
 		clientDao.updateClient(clients);
 	}
@@ -118,6 +121,7 @@ public class ProjetManagerImpl implements ProjetManager {
 	}
 
 	@Override
+	@Transactional(readOnly = false)
 	public void updateChauffeur(final Chauffeur chauffeur) {
 		// TODO Auto-generated method stub
 
@@ -127,4 +131,12 @@ public class ProjetManagerImpl implements ProjetManager {
 	public List<Voiture> getVoitures() {
 		return voituresDao.getAllVoitures();
 	}
+
+	@Override
+	@Transactional(readOnly = false)
+	public Boolean removeVoitures(Integer Id) throws SQLException {
+		Voiture voitures = voituresDao.getVoitures(Id);
+		return voituresDao.deleteVoitures(voitures);
+	}
+
 }

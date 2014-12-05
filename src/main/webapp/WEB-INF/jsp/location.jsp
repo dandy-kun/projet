@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@ taglib uri="http://java.sun.com/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ include file="headercopy.jsp"%>
 
 <!-- Marketing messaging and featurettes
@@ -12,11 +12,13 @@
 <div class="container marketing">
 	<div class="page-header">
 		<h1>
-			LUXURY Car</small>
+			<%-- <c:set var="date" value="<%=new java.util.Date()%>" />
+			 --%>LUXURY Car
+			<%-- <fmt:formatDate value="${date}" type="both" timeStyle="long"
+				dateStyle="long" /> --%> 
 		</h1>
 	</div>
 	<!-- Three columns of text below the carousel -->
-
 	<div class="row">
 		<div class="span6">
 			<p>
@@ -150,11 +152,12 @@
 <hr>
 <div class="span6">
 	<div class="table-responsive">
-		<form:form role="form" action="${pageContext.request.contextPath}/add"
-		
-			method="POST" commandName="location">		
+		<form:form role="form" action="${pageContext.request.contextPath}/location/add"
+			method="POST" commandName="location">
 			<form:label path="dateLocation">Date de location</form:label>
 			<form:input path="dateLocation" class="form-control" />
+
+
 			<form:label path="dateRetour">Date de Retour</form:label>
 			<form:input path="dateRetour" class="form-control" />
 			<form:label path="prix">Prix</form:label>
@@ -165,20 +168,24 @@
 						${chauffeur.nom }</option>
 				</c:forEach>
 			</select>
-
 			<select name="idVoiture">
 				<c:forEach items="${voitures}" var="voiture">
 					<option value="${voiture.id}" class="form-control">${voiture.id}
 						${voiture.marque }</option>
 				</c:forEach>
 			</select>
-
 			<select name="idClient">
 				<c:forEach items="${clients}" var="client">
-					<option value="${client.id}" class="form-control">${cleint.id}
+					<option value="${client.id}" class="form-control">${client.id}
 						${client.nom} ${client.prenom }</option>
 				</c:forEach>
 			</select>
+				<div class="form-group">
+					<form:select path="etat">Etat
+							<form:option value="AVEC">AVEC</form:option>
+						<form:option value="SANS">SANS</form:option>
+					</form:select>
+				</div>
 			<button type="submit" class="btn btn-default">Ajouter</button>
 		</form:form>
 	</div>

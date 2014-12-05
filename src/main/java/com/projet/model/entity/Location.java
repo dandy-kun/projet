@@ -26,7 +26,7 @@ public class Location implements Serializable {
 	private Date dateLocation;
 	@Column(name = "DATERETOUR", nullable = false)
 	private Date dateRetour;
-	@Column(name = "STATUT", nullable = false)
+	@Column(name = "ETAT", nullable = false)
 	private Etat etat;
 	@Column(name = "PRIX", nullable = false)
 	private float prix;
@@ -41,19 +41,17 @@ public class Location implements Serializable {
 		super();
 	}
 
-	public Location(final int id, final Date dateLocation,
-			final Date dateRetour, final Etat etat, final float prix,
-			final Voiture voiture_id, final Client client_id,
-			final Chauffeur chauffeur_id) {
+	public Location(int id, Date dateLocation, Date dateRetour, Etat etat,
+			float prix, Voiture voiture, Client client, Chauffeur chauffeur) {
 		super();
 		this.id = id;
 		this.dateLocation = dateLocation;
 		this.dateRetour = dateRetour;
 		this.etat = etat;
 		this.prix = prix;
-		voiture = voiture_id;
-		client = client_id;
-		chauffeur = chauffeur_id;
+		this.voiture = voiture;
+		this.client = client;
+		this.chauffeur = chauffeur;
 	}
 
 	public int getId() {

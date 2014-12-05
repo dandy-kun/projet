@@ -15,6 +15,8 @@ import com.projet.model.entity.Chauffeur;
 import com.projet.model.entity.Client;
 import com.projet.model.entity.Location;
 import com.projet.model.entity.Voiture;
+import com.projet.model.entity.enumeration.Etat;
+import com.projet.model.entity.enumeration.Statut;
 import com.projet.model.manager.ProjetManager;
 
 @Controller
@@ -49,18 +51,16 @@ public class LocationController {
 			@ModelAttribute("idChauffeur") final Integer idChauffeur,
 			@ModelAttribute("idVoiture") final Integer idVoiture,
 			@ModelAttribute("idClient") final Integer idClient,
-			final ModelMap model) {
+			@ModelAttribute("etat") final Etat etat, final ModelMap model)
+			throws SQLException {
 
 		final Chauffeur chauffeur = projetManager.getChauffeur(idChauffeur);
 		location.setChauffeur_id(chauffeur);
 
-		Voiture voiture = null;
-		try {
-			voiture = projetManager.getVoiture(idVoiture);
-		} catch (final SQLException e) {
-			e.printStackTrace();
-		}
+		final Voiture voiture = projetManager.getVoiture(idVoiture);
 		location.setVoiture_id(voiture);
+		location.setEtat(etat);
+		voiture.setStatut(Statut.LOCATION);
 
 		final Client client = projetManager.getClient(idClient);
 		location.setClient_id(client);

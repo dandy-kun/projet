@@ -47,16 +47,17 @@ public class ITProjetManagerImplTest {
 				null, 0, 0);
 		final Voiture voiture2 = new Voiture(0, "Aston", null, null, 300, 0,
 				null, 0, 0);
-		projetManager.addVoitures(voiture);
-		projetManager.addVoitures(voiture2);
+		projetManager.addVoiture(voiture);
+		projetManager.addVoiture(voiture2);
 
 		location.setClient_id(client);
 
-		final Boolean b1 = projetManager.addClients(client);
+		final Boolean b1 = projetManager.addClient(client);
 		Assert.assertTrue(b1);
 
-		final Boolean b2 = projetManager.addClients(null);
+		final Boolean b2 = projetManager.addClient(null);
 		Assert.assertFalse(b2);
 	}
 
 }
+

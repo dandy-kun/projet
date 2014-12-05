@@ -15,7 +15,4 @@ public interface ClientDAO {
 	public boolean updateClient(Client clients);
 
 	public boolean deleteClient(Client client);
-
-	public Object getClients(Client any);
-
- }
+}

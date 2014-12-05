@@ -67,11 +67,4 @@ public class ClientDAOImplJPA implements ClientDAO {
 		return true;
 
 	}
-
-	@Override
-	public Object getClients(final Client any) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }

@@ -7,7 +7,9 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+
 import org.springframework.stereotype.Repository;
+
 import com.projet.model.dao.ChauffeurDAO;
 import com.projet.model.entity.Chauffeur;
 
@@ -17,6 +19,7 @@ public class ChauffeurDAOImplJPA implements ChauffeurDAO {
 	@PersistenceContext
 	private EntityManager entityManager;
 
+	@Override
 	public Chauffeur getChauffeur(final Integer id) {
 		if (id == null) {
 			return null;
@@ -34,7 +37,8 @@ public class ChauffeurDAOImplJPA implements ChauffeurDAO {
 		return entityManager.createQuery(cq).getResultList();
 	}
 
-	public boolean createChauffeur(final Chauffeur chauffeur) {
+	@Override
+	public boolean addChauffeur(final Chauffeur chauffeur) {
 		if (chauffeur == null) {
 			return false;
 		}
@@ -42,6 +46,7 @@ public class ChauffeurDAOImplJPA implements ChauffeurDAO {
 		return true;
 	}
 
+	@Override
 	public boolean updateChauffeur(final Chauffeur chauffeur) {
 		if (chauffeur == null) {
 			return false;
@@ -51,6 +56,7 @@ public class ChauffeurDAOImplJPA implements ChauffeurDAO {
 
 	}
 
+	@Override
 	public boolean deleteChauffeur(final Chauffeur chauffeur) {
 		if (chauffeur == null) {
 			return false;
@@ -58,7 +64,5 @@ public class ChauffeurDAOImplJPA implements ChauffeurDAO {
 		entityManager.remove(chauffeur);
 		return true;
 	}
-
-
 
 }

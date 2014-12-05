@@ -6,10 +6,10 @@ import com.projet.model.entity.Chauffeur;
 
 public interface ChauffeurDAO {
 	public Chauffeur getChauffeur(final Integer id);
-	
+
 	public List<Chauffeur> getAllChauffeur();
 
-	public boolean createChauffeur(Chauffeur chauffeur);
+	public boolean addChauffeur(Chauffeur chauffeur);
 
 	public boolean updateChauffeur(Chauffeur chauffeur);
 

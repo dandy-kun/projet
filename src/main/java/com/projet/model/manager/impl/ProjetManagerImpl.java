@@ -50,7 +50,7 @@ public class ProjetManagerImpl implements ProjetManager {
 	@Override
 	@Transactional(readOnly = false)
 	public Boolean addChauffeur(final Chauffeur chauffeur) {
-		chauffeurDao.createChauffeur(chauffeur);
+		chauffeurDao.addChauffeur(chauffeur);
 		return true;
 	}
 
@@ -110,8 +110,8 @@ public class ProjetManagerImpl implements ProjetManager {
 	@Override
 	@Transactional(readOnly = false)
 	public Chauffeur getChauffeur(final Integer chauffeurId) {
-		// TODO Auto-generated method stub
-		return null;
+
+		return chauffeurDao.getChauffeur(chauffeurId);
 	}
 
 	@Override

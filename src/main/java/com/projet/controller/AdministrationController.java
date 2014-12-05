@@ -35,9 +35,7 @@ public class AdministrationController {
 		final List<Chauffeur> listCh = projetManager.getChauffeurs();
 		model.addAttribute("chauffeurs", listCh);
 		final Voiture voiture = new Voiture();
-		final Chauffeur chauffeur = new Chauffeur();
 		model.addAttribute("voiture", voiture);
-		model.addAttribute("chauffeur", chauffeur);
 		return "administration";
 
 	}

@@ -60,12 +60,12 @@ public class ProjetManagerImplTest {
 	public void testAddVoitures() throws SQLException {
 
 		Mockito.when(voituresDao.addVoitures(Matchers.any(Voiture.class)))
-		.thenReturn(Boolean.TRUE);
+				.thenReturn(Boolean.TRUE);
 
 		final Voiture voitures = new Voiture(1, "bentley", "gt continental",
 				"bleue", 2014, 5000, Statut.LIBRE, 6000, 1000);
-		projetManagerImpl.addVoitures(voitures);
-		final Boolean b1 = projetManagerImpl.addVoitures(voitures);
+		projetManagerImpl.addVoiture(voitures);
+		final Boolean b1 = projetManagerImpl.addVoiture(voitures);
 		Assert.assertTrue(b1);
 
 	}
@@ -73,10 +73,10 @@ public class ProjetManagerImplTest {
 	@Test
 	public void testGetClient() {
 		Mockito.when(clientDao.getClients(Matchers.any(Client.class)))
-		.thenReturn(Boolean.TRUE);
+				.thenReturn(Boolean.TRUE);
 
 		final Client client = new Client(1, "Lecomte", "Henry", "Lille");
-		projetManagerImpl.addClients(client);
+		projetManagerImpl.addClient(client);
 		projetManagerImpl.getClient(client.getId());
 		final List<Client> listClient = projetManagerImpl.getClients();
 		Assert.assertNotNull(listClient);
@@ -101,8 +101,8 @@ public class ProjetManagerImplTest {
 				chauffeurDao.createChauffeur(Matchers.any(Chauffeur.class)))
 				.thenReturn(Boolean.TRUE);
 		final Client client = new Client(1, "Lecomte", "Henry", "Lille");
-		projetManagerImpl.addClients(client);
-		final Boolean b1 = projetManagerImpl.addClients(client);
+		projetManagerImpl.addClient(client);
+		final Boolean b1 = projetManagerImpl.addClient(client);
 		Assert.assertTrue(b1);
 	}
 
@@ -112,9 +112,9 @@ public class ProjetManagerImplTest {
 				chauffeurDao.createChauffeur(Matchers.any(Chauffeur.class)))
 				.thenReturn(Boolean.TRUE);
 		final Date dateDebut = new SimpleDateFormat("mm/dd/yyyy", Locale.FRANCE)
-		.parse("12/25/2014");
+				.parse("12/25/2014");
 		final Date dateFin = new SimpleDateFormat("mm/dd/yyyy", Locale.FRANCE)
-				.parse("12/28/2014");
+		.parse("12/28/2014");
 
 		final Location location = new Location(1, dateDebut, dateFin, null,
 				3000.f, null, null, null);
@@ -129,8 +129,8 @@ public class ProjetManagerImplTest {
 				chauffeurDao.createChauffeur(Matchers.any(Chauffeur.class)))
 				.thenReturn(Boolean.TRUE);
 		final Client client = new Client(1, "Lecomte", "Henry", "Lille");
-		projetManagerImpl.removeClients(client);
-		final Boolean b1 = projetManagerImpl.removeClients(client);
+		projetManagerImpl.removeClient(client);
+		final Boolean b1 = projetManagerImpl.removeClient(client);
 		Assert.assertTrue(b1);
 	}
 
@@ -153,7 +153,7 @@ public class ProjetManagerImplTest {
 				.thenReturn(Boolean.TRUE);
 		final Client client = new Client(1, "Lecomte", "Henry", "Lille");
 
-		projetManagerImpl.addClients(client);
+		projetManagerImpl.addClient(client);
 		projetManagerImpl.updateClient(client);
 
 	}

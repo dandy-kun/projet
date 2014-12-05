@@ -9,38 +9,33 @@
 
 <div class="container marketing">
 	<div class="page-header">
-		</br> </br> </br>
 		<h1>
-			LUXURY Car <small>Voici notre séléction de véhicule de
-				prestige</small>
+			LUXURY Car</small>
 		</h1>
 	</div>
 	<!-- Three columns of text below the carousel -->
+
 	<div class="row">
-		<div class="span2">
+		<div class="span6">
 			<p>
 			<div class="table-responsive">
 				<table class="table">
 					<caption>
-						<h2>Location</h2>
+						<h2 class="text-left">CLient</h2>
 					</caption>
 					<thead>
 						<tr>
-							<th>Date location</th>
-							<th>Date retour</th>
-							<th>Statut</th>
-							<th>Prix</th>
-							<th>Chauffeur</th>
-							<th>Client</th>
-							<th>Voiture</th>
+							<th>id</th>
+							<th>nom</th>
+							<th>prenom</th>
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach items="${chauffeurs}" var="chauffeur">
+						<c:forEach items="${clients}" var="client">
 							<tr>
-								<td>${chauffeur.nom}</td>
-								<td>${chauffeur.prenom}</td>
-								<td>${chauffeur.tarif}€</td>
+								<td>${client.id}</td>
+								<td>${client.nom}</td>
+								<td>${client.prenom}</td>
 							</tr>
 						</c:forEach>
 
@@ -51,13 +46,14 @@
 		<!-- /.span4 -->
 	</div>
 	<br />
+	<hr>
 	<div class="row">
-		<div class="span2">
+		<div class="span6">
 			<p>
 			<div class="table-responsive">
 				<table class="table">
 					<caption>
-						<h2>Location</h2>
+						<h2 class="text-left">Voiture</h2>
 					</caption>
 					<thead>
 						<tr>
@@ -85,7 +81,76 @@
 			</div>
 		</div>
 	</div>
+	<hr>
+	<div class="row">
+		<div class="span6">
+			<div class="table-responsive">
+				<table class="table">
+					<caption>
+						<h2 class="test-left">Chauffeur</h2>
+					</caption>
+					<thead>
+						<tr>
+							<th></th>
+							<th>nom</th>
+							<th>prenom</th>
+							<th>tarif</th>
+
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach items="${chauffeurs}" var="chauffeur">
+							<tr>
+								<td>${chauffeur.id}</td>
+								<td>${chauffeur.nom}</td>
+								<td>${chauffeur.prenom}</td>
+								<td>${chauffeur.tarif}€</td>
+							</tr>
+						</c:forEach>
+
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<br />
+	<hr>
+	<div class="row">
+		<div class="span6">
+			<div class="table-responsive">
+				<table class="table">
+					<caption>
+						<h2 class="test-left">Location</h2>
+					</caption>
+					<thead>
+						<tr>
+							<th>Date location</th>
+							<th>Date retour</th>
+							<th>Statut</th>
+							<th>Prix</th>
+							<th>Chauffeur</th>
+							<th>Client</th>
+							<th>Voiture</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach items="${chauffeurs}" var="chauffeur">
+							<tr>
+								<td>${chauffeur.nom}</td>
+								<td>${chauffeur.prenom}</td>
+								<td>${chauffeur.tarif}€</td>
+							</tr>
+						</c:forEach>
+
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<!-- /.span4 -->
+	</div>
 </div>
+<br />
+<hr>
 <!-- /.row -->
 <!-- /END THE FEATURETTES -->
 <%@ include file="footer.jsp"%>

@@ -31,12 +31,6 @@ public class LocationController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String name(final ModelMap model) {
 		init();
-		return "location";
-	}
-
-	@RequestMapping(value = "/addLocation", method = RequestMethod.GET)
-	public String addLocation(final ModelMap model) {
-		init();
 		final List<Client> clients = projetManager.getClients();
 		final List<Location> locations = projetManager.getLocations();
 		final List<Chauffeur> chauffeurs = projetManager.getChauffeurs();
@@ -44,7 +38,6 @@ public class LocationController {
 		model.addAttribute("locations", locations);
 		model.addAttribute("chauffeurs", chauffeurs);
 		model.addAttribute("location", new Location());
-
 		return "location";
 	}
 
@@ -63,7 +56,6 @@ public class LocationController {
 		try {
 			voiture = projetManager.getVoiture(idVoiture);
 		} catch (final SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		location.setVoiture_id(voiture);

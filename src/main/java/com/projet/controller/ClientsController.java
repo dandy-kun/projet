@@ -1,5 +1,6 @@
 package com.projet.controller;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.context.ApplicationContext;
@@ -32,56 +33,34 @@ public class ClientsController {
 		init();
 		final List<Client> list = projetManager.getClients();
 		model.addAttribute("clients", list);
+		final Client client = new Client();
+		model.addAttribute("client", client);
 		return "client";
 	}
 
-	@RequestMapping(value = "/add", method = RequestMethod.GET)
-	public String addClient(final ModelMap model) {
-		final Client client = new Client();
-		model.addAttribute("client", new Client());
-		return "addClient";
-	}
-
 	// Traitement
-	@RequestMapping(value = "add", method = RequestMethod.POST)
+	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public String handleForm(@ModelAttribute("client") final Client client,
 			final ModelMap model) {
-
+		init();
 		if (client != null && client.getNom() != null
 				&& !client.getNom().isEmpty() && client.getPrenom() != null
 				&& !client.getPrenom().isEmpty()) {
-			final ApplicationContext ctx = new ClassPathXmlApplicationContext(
-					"spring.xml");
-			final ProjetManager projetManager = (ProjetManager) ctx
-					.getBean("projetManagerImpl");
 			projetManager.addClient(client);
 			return "redirect:/client";
 		}
 		model.addAttribute("clients", client);
-		return "addClient";
-
-	}
-
-	@RequestMapping(value = "/edit/{clientId}", method = RequestMethod.GET)
-	public String editClient(@PathVariable("clientId") final Integer clientId,
-			final ModelMap model) {
-
-		final ApplicationContext ctx = new ClassPathXmlApplicationContext(
-				"spring.xml");
-		final ProjetManager projetManager = (ProjetManager) ctx
-				.getBean("projetManagerImpl");
-		final Client client = projetManager.getClient(clientId);
-		model.addAttribute("client", client);
-		return "modifClient";
+		return "client";
 
 	}
 
 	@RequestMapping(value = "/edit/{clientId}", method = RequestMethod.POST)
 	public String editClientReponse(
+
 			@ModelAttribute("client") final Client client,
 			@PathVariable("clientId") final Integer clientId,
 			final ModelMap model) {
-
+		init();
 		if (client.getNom() != null && !client.getNom().isEmpty()
 				&& client.getPrenom() != null && !client.getPrenom().isEmpty()) {
 
@@ -91,6 +70,15 @@ public class ClientsController {
 			return "redirect:/client";
 		}
 		model.addAttribute("client", client);
-		return "modifClients";
+		return "client";
+	}
+
+	@RequestMapping(value = "/remove/{Id}", method = RequestMethod.GET)
+	public String removeClientReponse(@PathVariable("Id") final Integer Id,
+			final ModelMap model) throws SQLException {
+		init();
+		projetManager.removeClient(Id);
+		return "redirect:/client";
+
 	}
 }

@@ -70,33 +70,28 @@ public class ProjetManagerImpl implements ProjetManager {
 
 	@Override
 	@Transactional(readOnly = false)
-	public Boolean removeLocation(final Location location) {
-		locationDao.deleteLocation(location);
-		return true;
+	public Boolean removeLocation(Integer id) {
+		Location location = locationDao.readLocation(id);
+		return locationDao.deleteLocation(location);
 	}
 
 	@Override
 	@Transactional(readOnly = false)
-	public Boolean removeClient(final Client client) {
-		clientDao.deleteClient(client);
-		return true;
+	public Boolean removeClient(Integer id) {
+		Client client = clientDao.getClient(id);
+		return clientDao.deleteClient(client);
 	}
 
 	@Override
 	@Transactional(readOnly = false)
 	public Client getClient(final Integer clientsId) {
-		return null;
+		return clientDao.getClient(clientsId);
 	}
 
 	@Override
 	@Transactional(readOnly = false)
 	public void updateClient(final Client clients) {
 		clientDao.updateClient(clients);
-	}
-
-	public List<Client> getClients(final Integer clientId) {
-
-		return null;
 	}
 
 	@Override
@@ -145,9 +140,9 @@ public class ProjetManagerImpl implements ProjetManager {
 	}
 
 	@Override
-	public Client getVoiture(Voiture voitures) {
-		// TODO Auto-generated method stub
-		return null;
+	public Voiture getVoiture(Integer id) throws SQLException {
+
+		return voituresDao.getVoitures(id);
 	}
 
 	@Override
@@ -163,8 +158,8 @@ public class ProjetManagerImpl implements ProjetManager {
 	}
 
 	@Override
-	public Boolean removeChauffeur(Chauffeur chauffeur) {
-		// TODO Auto-generated method stub
-		return null;
+	public Boolean removeChauffeur(Integer id) {
+		Chauffeur chauffeur = chauffeurDao.getChauffeur(id);
+		return chauffeurDao.deleteChauffeur(chauffeur);
 	}
 }

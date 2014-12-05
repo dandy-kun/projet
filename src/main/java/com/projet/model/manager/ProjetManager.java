@@ -16,13 +16,13 @@ public interface ProjetManager {
 
 	public Boolean removeVoiture(Integer id) throws SQLException;
 
-	public Client getVoiture(Voiture voitures);
+	public Voiture getVoiture(Integer id) throws SQLException;
 
 	public void updateVoiture(Voiture voitures);
 
 	public Boolean addClient(Client clients);
 
-	public Boolean removeClient(Client clients);
+	public Boolean removeClient(Integer id);
 
 	public Client getClient(Integer clientId);
 
@@ -36,7 +36,7 @@ public interface ProjetManager {
 
 	public List<Location> getLocations();
 
-	public Boolean removeLocation(Location location);
+	public Boolean removeLocation(Integer id);
 
 	public Boolean addChauffeur(Chauffeur chauffeur);
 
@@ -46,6 +46,6 @@ public interface ProjetManager {
 
 	public void updateChauffeur(Chauffeur chauffeur);
 
-	public Boolean removeChauffeur(Chauffeur chauffeur);
+	public Boolean removeChauffeur(Integer id);
 
 }

@@ -30,10 +30,12 @@ public class ChauffeurController {
 
 	// renvoie une page avec une liste de chauffeur (liste chauffeur)
 	@RequestMapping
-	public String printChauffeur(final ModelMap model) {
+	public String name(final ModelMap model) {
 		init();
 		final List<Chauffeur> list = projetManager.getChauffeurs();
-		model.addAttribute("chauffeur", list);
+		model.addAttribute("chauffeurs", list);
+		Chauffeur chauffeur = new Chauffeur();
+		model.addAttribute("chauffeur", chauffeur);
 		return "chauffeur";
 	}
 

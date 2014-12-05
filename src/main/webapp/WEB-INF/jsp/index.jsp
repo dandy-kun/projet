@@ -20,7 +20,7 @@
             <div class="carousel-caption">
               <h1>Véhicule avec chauffeur.</h1>
               <p class="lead">Fort de plusieurs années d'expérience, notre équipe met tout son savoir-faire à votre disposition afin de vous proposer le meilleur en matière de luxe.</p>
-              <a class="btn btn-large btn-primary" href="location">décourvir nos véhicules.</a>
+              <a class="btn btn-large btn-primary" href="listeVoiture">décourvir nos véhicules.</a>
             </div>
           </div>
         </div>

@@ -19,8 +19,8 @@ public class Chauffeur implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "ID", nullable = false)
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "ID", nullable = true)
 	private Integer Id;
 	@Column(name = "NOM", nullable = false)
 	private String nom;
@@ -38,7 +38,7 @@ public class Chauffeur implements Serializable {
 	}
 
 	public Chauffeur(final int id, final String nom, final String prenom,
-			final float tarif) {
+			final Float tarif) {
 		super();
 		Id = id;
 		this.nom = nom;
@@ -94,16 +94,8 @@ public class Chauffeur implements Serializable {
 	/**
 	 * @return the tarif
 	 */
-	public float getTarif() {
+	public Float getTarif() {
 		return tarif;
-	}
-
-	/**
-	 * @param tarif
-	 *            the tarif to set
-	 */
-	public void setTarif(final float tarif) {
-		this.tarif = tarif;
 	}
 
 	public List<Location> getListLocation() {
@@ -122,11 +114,6 @@ public class Chauffeur implements Serializable {
 		this.tarif = tarif;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString() {
 		return "Chauffeur [Id=" + Id + ", nom=" + nom + ", prenom=" + prenom

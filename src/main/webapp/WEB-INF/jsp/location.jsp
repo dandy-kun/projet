@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ include file="header.jsp"%>
+<%@ include file="headercopy.jsp"%>
 
 <!-- Marketing messaging and featurettes
     ================================================== -->
@@ -17,7 +17,7 @@
 	</div>
 	<!-- Three columns of text below the carousel -->
 	<div class="row">
-		<div class="span4">
+		<div class="span2">
 			<p>
 			<div class="table-responsive">
 				<table class="table">
@@ -49,7 +49,10 @@
 			</div>
 		</div>
 		<!-- /.span4 -->
-		<div class="span4">
+	</div>
+	<br />
+	<div class="row">
+		<div class="span2">
 			<p>
 			<div class="table-responsive">
 				<table class="table">
@@ -82,6 +85,7 @@
 			</div>
 		</div>
 	</div>
-	<!-- /.row -->
-	<!-- /END THE FEATURETTES -->
-	<%@ include file="footer.jsp"%>
+</div>
+<!-- /.row -->
+<!-- /END THE FEATURETTES -->
+<%@ include file="footer.jsp"%>

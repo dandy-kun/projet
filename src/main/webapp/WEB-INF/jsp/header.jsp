@@ -294,33 +294,6 @@ body {
 					<div class="nav-collapse collapse">
 						<ul class="nav">
 							<li class="active"><a href="hello">Home</a></li>
-							<li><a
-								href="http://getbootstrap.com/2.3.2/examples/carousel.html#about">About</a></li>
-							<li><a
-								href="http://getbootstrap.com/2.3.2/examples/carousel.html#contact">Contact</a></li>
-							<!-- Read about Bootstrap dropdowns at http://twbs.github.com/bootstrap/javascript.html#dropdowns -->
-							<li class="dropdown"><a
-								href="./Carousel Template · Bootstrap_files/Carousel Template · Bootstrap.html"
-								class="dropdown-toggle" data-toggle="dropdown">Dropdown <b
-									class="caret"></b></a>
-								<ul class="dropdown-menu">
-									<li><a
-										href="./Carousel Template · Bootstrap_files/Carousel Template · Bootstrap.html">Action</a></li>
-									<li><a
-										href="./Carousel Template · Bootstrap_files/Carousel Template · Bootstrap.html">Another
-											action</a></li>
-									<li><a
-										href="./Carousel Template · Bootstrap_files/Carousel Template · Bootstrap.html">Something
-											else here</a></li>
-									<li class="divider"></li>
-									<li class="nav-header">Nav header</li>
-									<li><a
-										href="./Carousel Template · Bootstrap_files/Carousel Template · Bootstrap.html">Separated
-											link</a></li>
-									<li><a
-										href="./Carousel Template · Bootstrap_files/Carousel Template · Bootstrap.html">One
-											more separated link</a></li>
-								</ul></li>
 						</ul>
 					</div>
 					<!--/.nav-collapse -->

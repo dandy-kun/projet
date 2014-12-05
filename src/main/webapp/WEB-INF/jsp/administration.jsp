@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@ include file="header.jsp"%>
+<%@ include file="headercopy.jsp"%>
 
 <h1 class="text-center">Portail d'administration</h1>
 <div class="row">
@@ -97,33 +97,19 @@
 <br>
 <div class="row">
 	<div class="span4">
-		<h2>Ajout Chauffeur</h2>
+		<h2>Ajout  d'un chauffeur</h2>
 		<div class="table-responsive">
 			<form:form role="form"
-				action="${pageContext.request.contextPath}/administration/add"
-				method="POST" commandName="voiture">
+				action="${pageContext.request.contextPath}/chauffeur/add"
+				method="POST" commandName="chauffeur">
 
 				<div class="form-group">
-					<form:label path="marque">Marque</form:label>
-					<form:input path="marque" class="form-control" />
+					<form:label path="nom">Nom</form:label>
+					<form:input path="nom" class="form-control" />
 				</div>
 				<div class="form-group">
-					<form:label path="modele">Modele</form:label>
-					<form:input path="modele" class="form-control" />
-				</div>
-				<div class="form-group">
-					<form:label path="couleur">Couleur</form:label>
-					<form:input path="couleur" class="form-control" />
-				</div>
-				<div class="form-group">
-					<form:select path="statut">Statut
-							<form:option value="LIBRE">LIBRE</form:option>
-						<form:option value="LOCATION">LOCATION</form:option>
-					</form:select>
-				</div>
-				<div class="form-group">
-					<form:label path="caution">Caution</form:label>
-					<form:input path="caution" class="form-control" />
+					<form:label path="prenom">Prénom</form:label>
+					<form:input path="prenom" class="form-control" />
 				</div>
 				<div class="form-group">
 					<form:select path="tarif">Tarif
@@ -133,18 +119,10 @@
 						<form:option value="8">8</form:option>
 						<form:option value="9">9</form:option>
 						<form:option value="10">10</form:option>
-						<form:option value="11">11</form:option>
-						<form:option value="12">12</form:option>
+						
 					</form:select>
 				</div>
-				<div class="form-group">
-					<form:label path="kilometre">Kilometre</form:label>
-					<form:input path="kilometre" class="form-control" />
-				</div>
-				<div class="form-group">
-					<form:label path="annee">Année</form:label>
-					<form:input path="annee" class="form-control" />
-				</div>
+				
 				<button type="submit" class="btn btn-default">Ajouter</button>
 			</form:form>
 		</div>
@@ -169,7 +147,7 @@
 							<td>${chauffeur.prenom}</td>
 							<td>${chauffeur.tarif}€</td>
 							<td><a
-								href="${pageContext.request.contextPath}/administration/remove/${chauffeur.id}"
+								href="${pageContext.request.contextPath}/chauffeur/remove/${chauffeur.id}"
 								class="btn btn-danger btn-sm delete"> Supprimer </a></td>
 						</tr>
 					</c:forEach>
@@ -183,3 +161,8 @@
 	</div>
 	</body>
 	<%@ include file="footer.jsp"%>
+<br />
+<!-- /.span4 -->
+</div>
+</body>
+<%@ include file="footer.jsp"%>

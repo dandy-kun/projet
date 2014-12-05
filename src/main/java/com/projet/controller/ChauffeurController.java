@@ -1,5 +1,6 @@
 package com.projet.controller;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.context.ApplicationContext;
@@ -20,63 +21,30 @@ public class ChauffeurController {
 
 	private ProjetManager projetManager;
 
-	@RequestMapping
-	public String printChauffeur(final ModelMap model) {
-		final List<Chauffeur> list = projetManager.getChauffeurs();
-		model.addAttribute("chauffeur", list);
-		return "administration";
-	}
-
-	@RequestMapping(value = "/add", method = RequestMethod.GET)
-	public String addChauffeur(final ModelMap model) {
-		final Chauffeur chauffeur = new Chauffeur();
-		model.addAttribute("chauffeur", new Chauffeur());
-		return "administration";
-	}
-
-	// Traitement
-	@RequestMapping(value = "add", method = RequestMethod.POST)
-	public String handleForm(
-			@ModelAttribute("chauffeur") final Chauffeur chauffeur,
-			final ModelMap model) {
-
-		if (chauffeur != null && chauffeur.getNom() != null
-				&& !chauffeur.getNom().isEmpty()
-				&& chauffeur.getPrenom() != null
-				&& !chauffeur.getPrenom().isEmpty()) {
-
-			final ApplicationContext ctx = new ClassPathXmlApplicationContext(
-					"spring.xml");
-			final ProjetManager projetManager = (ProjetManager) ctx
-					.getBean("projetManagerImpl");
-			projetManager.addChauffeur(chauffeur);
-			return "redirect:/administration";
-		}
-
-		model.addAttribute("chauffeur", chauffeur);
-		return "administration";
-	}
-
-	@RequestMapping(value = "/edit/{chauffeurId}", method = RequestMethod.GET)
-	public String editChauffeur(
-			@PathVariable("chauffeurId") final Integer chauffeurId,
-			final ModelMap model) {
+	public void init() {
 
 		final ApplicationContext ctx = new ClassPathXmlApplicationContext(
 				"spring.xml");
-		final ProjetManager projetManager = (ProjetManager) ctx
-				.getBean("projetManagerImpl");
-		final Chauffeur chauffeur = projetManager.getChauffeur(chauffeurId);
-		model.addAttribute("chauffeur", chauffeur);
-		return "administration";
+		projetManager = (ProjetManager) ctx.getBean("projetManagerImpl");
 	}
+
+	// renvoie une page avec une liste de chauffeur (liste chauffeur)
+	@RequestMapping
+	public String printChauffeur(final ModelMap model) {
+		init();
+		final List<Chauffeur> list = projetManager.getChauffeurs();
+		model.addAttribute("chauffeur", list);
+		return "chauffeur";
+	}
+
+	// Traitement
 
 	@RequestMapping(value = "/edit/{chauffeurId}", method = RequestMethod.POST)
 	public String editChauffeurReponse(
 			@ModelAttribute("chauffeur") final Chauffeur chauffeur,
 			@PathVariable("chauffeurId") final Integer chauffeurId,
 			final ModelMap model) {
-
+		init();
 		if (chauffeur.getNom() != null && !chauffeur.getNom().isEmpty()
 				&& chauffeur.getPrenom() != null
 				&& !chauffeur.getPrenom().isEmpty()) {
@@ -84,9 +52,29 @@ public class ChauffeurController {
 			chauffeur.setId(chauffeurId);
 			projetManager.updateChauffeur(chauffeur);
 
-			return "redirect:/administration";
+			return "redirect:/chauffeur";
 		}
 		model.addAttribute("chauffeur", chauffeur);
-		return "administration";
+		return "chauffeur";
+	}
+
+	@RequestMapping(value = "/remove/{Id}", method = RequestMethod.GET)
+	public String removeChauffeurReponse(@PathVariable("Id") final Integer Id,
+			final ModelMap model) throws SQLException {
+		init();
+
+		projetManager.removeChauffeur(Id);
+		return "redirect:/chauffeur";
+
+	}
+
+	@RequestMapping(value = "/add", method = RequestMethod.POST)
+	public String addChauffeur(
+			@ModelAttribute("chauffeur") final Chauffeur chauffeur,
+			final ModelMap model) {
+		init();
+		projetManager.addChauffeur(chauffeur);
+		return "redirect:/chauffeur";
+
 	}
 }

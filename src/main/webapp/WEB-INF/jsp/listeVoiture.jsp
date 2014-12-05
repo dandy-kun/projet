@@ -2,7 +2,7 @@
  <%@ page contentType="text/html; charset=UTF-8" %>
  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ include file="headercopy.jsp"%>
-   <div class="span4">
+   <div class="span12">
 		<div class="table-responsive">
 			<table class="table">
 				<caption>
@@ -33,6 +33,7 @@
 			</table>
 		</div>
 	</div>
+	<hr>
       <!-- /END THE FEATURETTES -->
 <%@ include file="footer.jsp" %>	
       

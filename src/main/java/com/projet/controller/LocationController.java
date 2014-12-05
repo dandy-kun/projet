@@ -34,6 +34,8 @@ public class LocationController {
 		final List<Client> clients = projetManager.getClients();
 		final List<Location> locations = projetManager.getLocations();
 		final List<Chauffeur> chauffeurs = projetManager.getChauffeurs();
+		final List<Voiture> list = projetManager.getVoitures();
+		model.addAttribute("voitures", list);
 		model.addAttribute("clients", clients);
 		model.addAttribute("locations", locations);
 		model.addAttribute("chauffeurs", chauffeurs);
@@ -41,7 +43,7 @@ public class LocationController {
 		return "location";
 	}
 
-	@RequestMapping(value = "/addLocation", method = RequestMethod.POST)
+	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public String addLocationReponse(
 			@ModelAttribute("location") final Location location,
 			@ModelAttribute("idChauffeur") final Integer idChauffeur,

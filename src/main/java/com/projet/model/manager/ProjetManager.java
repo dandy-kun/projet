@@ -10,29 +10,35 @@ import com.projet.model.entity.Voiture;
 
 public interface ProjetManager {
 
-	public Boolean addVoitures(Voiture voitures);
+	public Boolean addVoiture(Voiture voitures);
 
 	public List<Voiture> getVoitures();
 
-	public Boolean removeVoitures(Integer id) throws SQLException;
+	public Boolean removeVoiture(Integer id) throws SQLException;
 
-	public Boolean addChauffeur(Chauffeur chauffeur);
+	public Client getVoiture(Voiture voitures);
 
-	public Boolean addClients(Client clients);
+	public void updateVoiture(Voiture voitures);
 
-	public Boolean addLocation(Location location);
+	public Boolean addClient(Client clients);
 
-	public Boolean removeClients(Client clients);
+	public Boolean removeClient(Client clients);
 
 	public Client getClient(Integer clientId);
-
-	public Location getLocation(Integer clientId);
 
 	public void updateClient(Client clients);
 
 	public List<Client> getClients();
 
+	public Boolean addLocation(Location location);
+
+	public Location getLocation(Integer clientId);
+
+	public List<Location> getLocations();
+
 	public Boolean removeLocation(Location location);
+
+	public Boolean addChauffeur(Chauffeur chauffeur);
 
 	public Chauffeur getChauffeur(Integer chauffeurId);
 
@@ -40,5 +46,6 @@ public interface ProjetManager {
 
 	public void updateChauffeur(Chauffeur chauffeur);
 
+	public Boolean removeChauffeur(Chauffeur chauffeur);
 
 }

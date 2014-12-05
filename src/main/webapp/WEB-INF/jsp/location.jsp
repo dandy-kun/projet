@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://java.sun.com/jstl/fmt" prefix="fmt" %>
 <%@ include file="headercopy.jsp"%>
 
 <!-- Marketing messaging and featurettes
@@ -129,12 +130,12 @@
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach items="${locations}" var="location">
+						<c:forEach items="${locations}" var="loc">
 							<tr>
-								<td>${location.id}</td>
-								<td>${location.dateLocation}</td>
-								<td>${location.dateRetour}</td>
-								<td>${location.prix}€</td>
+								<td>${loc.id}</td>
+								<td>${loc.dateLocation}</td>
+								<td>${loc.dateRetour}</td>
+								<td>${loc.prix}€</td>
 							</tr>
 						</c:forEach>
 
@@ -150,7 +151,8 @@
 <div class="span6">
 	<div class="table-responsive">
 		<form:form role="form" action="${pageContext.request.contextPath}/add"
-			method="POST" commandName="location">
+		
+			method="POST" commandName="location">		
 			<form:label path="dateLocation">Date de location</form:label>
 			<form:input path="dateLocation" class="form-control" />
 			<form:label path="dateRetour">Date de Retour</form:label>

@@ -22,13 +22,17 @@
 			<div class="table-responsive">
 				<table class="table">
 					<caption>
-						<h2>Chauffeurs</h2>
+						<h2>Location</h2>
 					</caption>
 					<thead>
 						<tr>
-							<th>Nom</th>
-							<th>Prenom</th>
-							<th>Tarif</th>
+							<th>Date location</th>
+							<th>Date retour</th>
+							<th>Statut</th>
+							<th>Prix</th>
+							<th>Chauffeur</th>
+							<th>Client</th>
+							<th>Voiture</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -50,7 +54,7 @@
 			<div class="table-responsive">
 				<table class="table">
 					<caption>
-						<h2>Voitures</h2>
+						<h2>Location</h2>
 					</caption>
 					<thead>
 						<tr>

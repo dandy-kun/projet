@@ -47,7 +47,7 @@ public class AdministrationController {
 			final ModelMap model) {
 		init();
 		projetManager.addVoitures(voiture);
-		return "redirect:/location";
+		return "redirect:/administration";
 
 	}
 
@@ -56,7 +56,7 @@ public class AdministrationController {
 			final ModelMap model) {
 		init();
 		projetManager.addVoitures(voiture);
-		return "redirect:/location";
+		return "redirect:/administration";
 
 	}
 
@@ -66,7 +66,7 @@ public class AdministrationController {
 		init();
 
 		projetManager.removeVoitures(Id);
-		return "redirect:/location";
+		return "redirect:/administration";
 
 	}
 }

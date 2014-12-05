@@ -26,14 +26,14 @@ public class ChauffeurController {
 	public String printChauffeur(final ModelMap model) {
 		final List<Chauffeur> list = projetManager.getChauffeurs();
 		model.addAttribute("chauffeur", list);
-		return "chauffeur";
+		return "administration";
 	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public String addChauffeur(final ModelMap model) {
 		final Chauffeur chauffeur = new Chauffeur();
 		model.addAttribute("chauffeur", new Chauffeur());
-		return "addChauffeur";
+		return "administration";
 	}
 
 	// Traitement
@@ -52,11 +52,11 @@ public class ChauffeurController {
 			final ProjetManager projetManager = (ProjetManager) ctx
 					.getBean("projetManagerImpl");
 			projetManager.addChauffeur(chauffeur);
-			return "redirect:/chauffeur";
+			return "redirect:/administration";
 		}
 
 		model.addAttribute("chauffeur", chauffeur);
-		return "addChauffeur";
+		return "administration";
 	}
 
 	@RequestMapping(value = "/edit/{chauffeurId}", method = RequestMethod.GET)
@@ -70,7 +70,7 @@ public class ChauffeurController {
 				.getBean("projetManagerImpl");
 		final Chauffeur chauffeur = projetManager.getChauffeur(chauffeurId);
 		model.addAttribute("chauffeur", chauffeur);
-		return "modifChauffeur";
+		return "administration";
 	}
 
 	@RequestMapping(value = "/edit/{chauffeurId}", method = RequestMethod.POST)
@@ -86,9 +86,9 @@ public class ChauffeurController {
 			chauffeur.setId(chauffeurId);
 			projetManager.updateChauffeur(chauffeur);
 
-			return "redirect:/chauffeur";
+			return "redirect:/administration";
 		}
 		model.addAttribute("chauffeur", chauffeur);
-		return "modifChauffeur";
+		return "administration";
 	}
 }

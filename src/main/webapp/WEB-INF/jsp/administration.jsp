@@ -95,42 +95,91 @@
 	</div>
 </div>
 <br>
-<div class="span4">
-	<h3>test</h3>
-	<div class="table-responsive">
-		<table class="table">
-			<caption>
-				<h2>Chauffeurs</h2>
-			</caption>
-			<thead>
-				<tr>
-					<th>Nom</th>
-					<th>Prenom</th>
-					<th>Tarif</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach items="${chauffeurs}" var="chauffeur">
-					<tr>
-						<td>${chauffeur.nom}</td>
-						<td>${chauffeur.prenom}</td>
-						<td>${chauffeur.tarif}€</td>
-						<td><a
-							href="${pageContext.request.contextPath}/administration/remove/${chauffeur.id}"
-							class="btn btn-danger btn-sm delete"> Supprimer </a></td>
-					</tr>
-				</c:forEach>
+<div class="row">
+	<div class="span4">
+		<h2>Ajout Chauffeur</h2>
+		<div class="table-responsive">
+			<form:form role="form"
+				action="${pageContext.request.contextPath}/administration/add"
+				method="POST" commandName="voiture">
 
-			</tbody>
-		</table>
+				<div class="form-group">
+					<form:label path="marque">Marque</form:label>
+					<form:input path="marque" class="form-control" />
+				</div>
+				<div class="form-group">
+					<form:label path="modele">Modele</form:label>
+					<form:input path="modele" class="form-control" />
+				</div>
+				<div class="form-group">
+					<form:label path="couleur">Couleur</form:label>
+					<form:input path="couleur" class="form-control" />
+				</div>
+				<div class="form-group">
+					<form:select path="statut">Statut
+							<form:option value="LIBRE">LIBRE</form:option>
+						<form:option value="LOCATION">LOCATION</form:option>
+					</form:select>
+				</div>
+				<div class="form-group">
+					<form:label path="caution">Caution</form:label>
+					<form:input path="caution" class="form-control" />
+				</div>
+				<div class="form-group">
+					<form:select path="tarif">Tarif
+							<form:option value="5">5</form:option>
+						<form:option value="6">6</form:option>
+						<form:option value="7">7</form:option>
+						<form:option value="8">8</form:option>
+						<form:option value="9">9</form:option>
+						<form:option value="10">10</form:option>
+						<form:option value="11">11</form:option>
+						<form:option value="12">12</form:option>
+					</form:select>
+				</div>
+				<div class="form-group">
+					<form:label path="kilometre">Kilometre</form:label>
+					<form:input path="kilometre" class="form-control" />
+				</div>
+				<div class="form-group">
+					<form:label path="annee">Année</form:label>
+					<form:input path="annee" class="form-control" />
+				</div>
+				<button type="submit" class="btn btn-default">Ajouter</button>
+			</form:form>
+		</div>
 	</div>
-</div>
-<div class="span4">
-	<h3>test</h3>
-</div>
-<!-- /.span4 -->
+	<div class="span4">
+		<div class="table-responsive">
+			<table class="table">
+				<caption>
+					<h2>Chauffeurs</h2>
+				</caption>
+				<thead>
+					<tr>
+						<th>Nom</th>
+						<th>Prenom</th>
+						<th>Tarif</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach items="${chauffeurs}" var="chauffeur">
+						<tr>
+							<td>${chauffeur.nom}</td>
+							<td>${chauffeur.prenom}</td>
+							<td>${chauffeur.tarif}€</td>
+							<td><a
+								href="${pageContext.request.contextPath}/administration/remove/${chauffeur.id}"
+								class="btn btn-danger btn-sm delete"> Supprimer </a></td>
+						</tr>
+					</c:forEach>
 
-</div>
-</div>
-</body>
-<%@ include file="footer.jsp"%>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<!-- /.span4 -->
+	</div>
+	</body>
+	<%@ include file="footer.jsp"%>

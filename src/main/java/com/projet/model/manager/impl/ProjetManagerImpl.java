@@ -83,6 +83,7 @@ public class ProjetManagerImpl implements ProjetManager {
 	}
 
 	@Override
+	@Transactional(readOnly = false)
 	public Client getClient(final Integer clientsId) {
 		return null;
 	}
@@ -99,23 +100,27 @@ public class ProjetManagerImpl implements ProjetManager {
 	}
 
 	@Override
+	@Transactional(readOnly = false)
 	public List<Client> getClients() {
 		return clientDao.getAllClient();
 	}
 
 	@Override
+	@Transactional(readOnly = false)
 	public Location getLocation(final Integer clientId) {
 
 		return null;
 	}
 
 	@Override
+	@Transactional(readOnly = false)
 	public Chauffeur getChauffeur(final Integer chauffeurId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
+	@Transactional(readOnly = false)
 	public List<Chauffeur> getChauffeurs() {
 		return chauffeurDao.getAllChauffeur();
 	}
@@ -127,6 +132,7 @@ public class ProjetManagerImpl implements ProjetManager {
 	}
 
 	@Override
+	@Transactional(readOnly = false)
 	public List<Voiture> getVoitures() {
 		return voituresDao.getAllVoitures();
 	}

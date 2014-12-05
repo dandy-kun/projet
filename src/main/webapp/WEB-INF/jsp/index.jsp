@@ -10,7 +10,7 @@
             <div class="carousel-caption">
               <h1>Location de luxe</h1>
               <p class="lead">Pour que toutes vos envies de conduite puissent etre satisfaites, Luxury Rent a sélectionné des véhicules exceptionnels, des véhicules ayant pour points communs le plaisir de la conduite, la beauté et l’originalité des lignes.</p>
-              <a class="btn btn-large btn-primary" href="./Carousel Template · Bootstrap_files/Carousel Template · Bootstrap.html">décourvir nos véhicules.</a>
+              <a class="btn btn-large btn-primary" href="listeVoiture">décourvir nos véhicules.</a>
             </div>
           </div>
         </div>

@@ -2,7 +2,6 @@ package com.projet.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
@@ -19,7 +18,6 @@ import com.projet.model.manager.ProjetManager;
 @RequestMapping("/chauffeur")
 public class ChauffeurController {
 
-	@Autowired
 	private ProjetManager projetManager;
 
 	@RequestMapping

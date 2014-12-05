@@ -54,7 +54,7 @@ public class ClientsController {
 					"spring.xml");
 			final ProjetManager projetManager = (ProjetManager) ctx
 					.getBean("projetManagerImpl");
-			projetManager.addClients(client);
+			projetManager.addClient(client);
 			return "redirect:/client";
 		}
 		model.addAttribute("clients", client);

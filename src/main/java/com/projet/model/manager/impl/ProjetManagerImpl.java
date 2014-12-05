@@ -38,7 +38,7 @@ public class ProjetManagerImpl implements ProjetManager {
 
 	@Override
 	@Transactional(readOnly = false)
-	public Boolean addVoitures(final Voiture voitures) {
+	public Boolean addVoiture(final Voiture voitures) {
 		try {
 			voituresDao.addVoitures(voitures);
 		} catch (final SQLException e) {
@@ -56,7 +56,7 @@ public class ProjetManagerImpl implements ProjetManager {
 
 	@Override
 	@Transactional(readOnly = false)
-	public Boolean addClients(final Client clients) {
+	public Boolean addClient(final Client clients) {
 		clientDao.addClient(clients);
 		return true;
 	}
@@ -77,7 +77,7 @@ public class ProjetManagerImpl implements ProjetManager {
 
 	@Override
 	@Transactional(readOnly = false)
-	public Boolean removeClients(final Client client) {
+	public Boolean removeClient(final Client client) {
 		clientDao.deleteClient(client);
 		return true;
 	}
@@ -139,8 +139,32 @@ public class ProjetManagerImpl implements ProjetManager {
 
 	@Override
 	@Transactional(readOnly = false)
-	public Boolean removeVoitures(Integer id) throws SQLException {
+	public Boolean removeVoiture(Integer id) throws SQLException {
 		Voiture voiture = voituresDao.getVoitures(id);
 		return voituresDao.deleteVoitures(voiture);
+	}
+
+	@Override
+	public Client getVoiture(Voiture voitures) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void updateVoiture(Voiture voitures) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public List<Location> getLocations() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Boolean removeChauffeur(Chauffeur chauffeur) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

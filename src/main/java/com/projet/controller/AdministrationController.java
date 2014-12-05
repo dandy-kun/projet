@@ -3,7 +3,6 @@ package com.projet.controller;
 import java.sql.SQLException;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
@@ -20,7 +19,6 @@ import com.projet.model.manager.ProjetManager;
 @Controller
 @RequestMapping("/administration")
 public class AdministrationController {
-	@Autowired
 	private ProjetManager projetManager;
 
 	private void init() {
@@ -42,20 +40,11 @@ public class AdministrationController {
 
 	}
 
-	@RequestMapping(value = "/add", method = RequestMethod.GET)
-	public String addVoiture1(@ModelAttribute("voiture") final Voiture voiture,
-			final ModelMap model) {
-		init();
-		projetManager.addVoitures(voiture);
-		return "redirect:/administration";
-
-	}
-
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public String addVoiture(@ModelAttribute("voiture") final Voiture voiture,
 			final ModelMap model) {
 		init();
-		projetManager.addVoitures(voiture);
+		projetManager.addVoiture(voiture);
 		return "redirect:/administration";
 
 	}
@@ -65,7 +54,7 @@ public class AdministrationController {
 			final ModelMap model) throws SQLException {
 		init();
 
-		projetManager.removeVoitures(Id);
+		projetManager.removeVoiture(Id);
 		return "redirect:/administration";
 
 	}

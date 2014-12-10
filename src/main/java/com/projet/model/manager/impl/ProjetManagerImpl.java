@@ -152,9 +152,10 @@ public class ProjetManagerImpl implements ProjetManager {
 	}
 
 	@Override
+	@Transactional(readOnly = false)
 	public List<Location> getLocations() {
-		// TODO Auto-generated method stub
-		return null;
+
+		return locationDao.getAllLocation();
 	}
 
 	@Override

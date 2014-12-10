@@ -36,12 +36,14 @@ public class LocationController {
 		final List<Client> clients = projetManager.getClients();
 		final List<Location> locations = projetManager.getLocations();
 		final List<Chauffeur> chauffeurs = projetManager.getChauffeurs();
-		final List<Voiture> list = projetManager.getVoitures();
-		model.addAttribute("voitures", list);
+		final List<Voiture> voitures = projetManager.getVoitures();
+		final Location location = new Location();
+		System.out.println(locations.size());
 		model.addAttribute("clients", clients);
 		model.addAttribute("locations", locations);
+		model.addAttribute("location", location);
 		model.addAttribute("chauffeurs", chauffeurs);
-		model.addAttribute("location", new Location());
+		model.addAttribute("voitures", voitures);
 		return "location";
 	}
 
@@ -53,7 +55,7 @@ public class LocationController {
 			@ModelAttribute("idClient") final Integer idClient,
 			@ModelAttribute("etat") final Etat etat, final ModelMap model)
 			throws SQLException {
-
+		init();
 		final Chauffeur chauffeur = projetManager.getChauffeur(idChauffeur);
 		location.setChauffeur_id(chauffeur);
 
@@ -61,10 +63,8 @@ public class LocationController {
 		location.setVoiture_id(voiture);
 		location.setEtat(etat);
 		voiture.setStatut(Statut.LOCATION);
-
 		final Client client = projetManager.getClient(idClient);
 		location.setClient_id(client);
-
 		projetManager.addLocation(location);
 		return "redirect:/location";
 

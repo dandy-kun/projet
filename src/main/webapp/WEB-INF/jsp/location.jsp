@@ -93,7 +93,7 @@
 					</caption>
 					<thead>
 						<tr>
-							<th></th>
+							<th>id</th>
 							<th>nom</th>
 							<th>prenom</th>
 							<th>tarif</th>
@@ -114,7 +114,7 @@
 				</table>
 			</div>
 		</div>
-		<div class="span6">
+		<div class="span12">
 			<div class="table-responsive">
 				<table class="table">
 					<caption>
@@ -132,12 +132,15 @@
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach items="${locations}" var="loc">
+						<c:forEach items="${locations}" var="location">
 							<tr>
-								<td>${loc.id}</td>
-								<td>${loc.dateLocation}</td>
-								<td>${loc.dateRetour}</td>
-								<td>${loc.prix}€</td>
+								<td>${location.id}</td>
+								<td>${location.dateLocation}</td>
+								<td>${location.dateRetour}</td>
+								<td>${location.prix}€</td>
+								<td>${location.chauffeur_id}</td>
+								<td>${location.client_id}</td>
+								<td>${location.voiture_id}</td>
 							</tr>
 						</c:forEach>
 
